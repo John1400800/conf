@@ -1,0 +1,18 @@
+## pkgs list:
+- alsa-utils-1.2.11_1
+- base-system-0.114_2
+- cryptsetup-2.7.0_1
+- dejavu-fonts-ttf-2.37_2
+- firefox-125.0.1_1
+- gcc-13.2.0_2
+- libxft-2.3.8_1
+- libxinerama-1.1.5_1
+- neofetch-7.1.0_2
+- python3-3.12.3_1
+- qutebrowser-3.1.0_2
+- terminus-font-4.49.1_1
+- tlp-1.6.1_1
+- vim-x11-9.1.0104_1
+- xf86-video-intel-2.99.917.20210115_2
+- xorg-minimal-1.2_2
+- xsetroot-1.1.3_1
