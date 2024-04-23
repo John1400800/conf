@@ -1,0 +1,14 @@
+# Options for the kernel hook script installed by the efibootmgr package.
+# To allow efibootmgr to modify boot entries, set
+# MODIFY_EFI_ENTRIES=1
+# Kernel command-line options.  Example:
+# OPTIONS="root=/dev/sda3 loglevel=4"
+# Disk where EFI Partition is.  Default is /dev/sda
+# DISK="/dev/sda"
+# Partition number of EFI Partition.  Default is 1
+# PART=1
+
+MODIFY_EFI_ENTRIES=1
+OPTIONS="rd.luks.uuid=cb06d5ed-ed1d-4514-b839-71640aa58bad root=/dev/mapper/luks-cb06d5ed-ed1d-4514-b839-71640aa58bad loglevel=4"
+DISK="/dev/nvme0n1"
+PART=1
