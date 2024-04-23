@@ -8,7 +8,7 @@ if &t_Co >= 2
         set termguicolors
     endif
     colorscheme retrobox1
-    set background=dark 
+    set background=dark
 endif
 filetype plugin indent on
 set directory=$HOME/.vim/swp//
@@ -16,7 +16,7 @@ set autoread
 set lazyredraw
 set clipboard=unnamedplus
 set laststatus=2 showcmd wildmenu wildoptions=fuzzy,pum
-set relativenumber number numberwidth=3 cursorline cursorlineopt=number 
+set relativenumber number numberwidth=3 cursorline cursorlineopt=number
 set hlsearch incsearch
 set ignorecase smartcase
 set shiftwidth=4 cindent expandtab smarttab
