@@ -1,4 +1,0 @@
-tmpfs		/tmp	tmpfs	defaults,nosuid,nodev   0       0
-efivarfs	/sys/firmware/efi/efivars efivarfs defaults 0	0
-UUID=aade505f-3afc-4071-a7d0-528175922409 / ext4 defaults 0	1
-UUID=9336-CA85	/boot	vfat	defaults		0	2
