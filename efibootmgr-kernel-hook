@@ -1,4 +1,0 @@
-MODIFY_EFI_ENTRIES=1
-OPTIONS="root=/dev/nvme0n1p2 loglevel=4"
-DISK="/dev/nvme0n1"
-PART=1
