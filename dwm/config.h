@@ -15,8 +15,8 @@ static const char *fonts[]          = {
 static const char dmenufont[]       = "Terminus:style=Bold:size=16:antialias=true:autohint=true";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { "#ebdbb2", "#1c1c1c", "#504945" },
-	[SchemeSel]  = { "#fabd2f", "#1c1c1c", "#fabd2f" },
+	[SchemeNorm] = { "#000000", "#ffffff", "#dadada" },
+	[SchemeSel]  = { "#0000ff", "#ffffff", "#0000ff" },
 };
 
 /* tagging */
@@ -64,7 +64,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#1c1c1c", "-nf", "#ebdbb2", "-sb", "#fabd2f", "-sf", "#1c1c1c", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#ffffff", "-nf", "#000000", "-sb", "#0000ff", "-sf", "#ffffff", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *webbrowsercmd[]  = { "firefox", NULL };
 
@@ -82,7 +82,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.03} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	/* { MODKEY|ShiftMask,             XK_c,      killclient,     {0} }, */
+	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
