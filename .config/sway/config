@@ -5,7 +5,9 @@ set $down j
 set $up k
 set $right l
 
-set $term foot
+set $browser firefox
+set $term footclient
+exec foot -s
 set $menu wmenu-run -f "Terminus Bold 14" -N ffffff -n 000000 -S ffffff -s 0000ff -i -l 10
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
@@ -22,6 +24,8 @@ input "1267:12764:ELAN2204:00_04F3:31DC_Touchpad" {
 
 bindsym $mod+d		exec $menu
 bindsym $mod+Return	exec $term
+bindsym $mod+Shift+b	exec $browser
+
 
 bindsym $mod+Shift+q	kill
 # Reload the configuration file
@@ -67,8 +71,8 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym $mod+v splith
-bindsym $mod+b splitv
+bindsym $mod+b splith
+bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
 bindsym $mod+s layout stacking
@@ -108,22 +112,32 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
+# class                 border  bground   text    indicator child_border
+client.focused          #0000FF #0000FF70 #FFFFFF #FF00FF80 #0000FF70
+client.focused_inactive #FF00FF #FF00FF70 #FFFFFF #FF006680 #FF00FF70
+client.unfocused        #AC00FF #AC00FF70 #FFFFFF #FF006680 #AC00FF70
+client.urgent           #FF0066 #FF006670 #FFFFFF #FF00FF80 #FF006670
+client.placeholder      #000000 #00000070 #FFFFFF #FF006680 #00000070
+
 bar {
     position top
-
     gaps 0px 6px
     status_command i3blocks
     colors {
-        statusline #000000
-        background #ffffff
+    	background #FFFFFF99
+    	statusline #00000099
+    	separator  #000000
 
-    	focused_workspace #0000ff #ffffff #0000ff
-	inactive_workspace #ffffff #ffffff #000000
+	focused_workspace  #0000FF #0000FF70 #FFFFFF
+	active_workspace   #0000FF #0000FF70 #FFFFFF
+	inactive_workspace #FF00FF #FF00FF70 #FFFFFF
+	urgent_workspace   #FF0066 #FF006670 #FFFFFF
+	binding_mode       #AC00FF #AC00FF70 #FFFFFF
     }
 }
 
 font pango:FontAwesome 14, Terminus Bold 14
 gaps inner 6px
-default_border pixel 2
+for_window [app_id="footclient"] border pixel 3
 
 include /etc/sway/config.d/*

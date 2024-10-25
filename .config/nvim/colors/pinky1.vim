@@ -1,9 +1,10 @@
 hi clear
 syntax reset
 let g:colors_name = "mycolorscheme"
+set background=light
 
 hi Cursor       guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
-hi Normal       guifg=#000000 guibg=#ffffff gui=NONE cterm=NONE 
+hi Normal       guifg=#000000 guibg=NONE gui=NONE cterm=NONE 
 hi Folded       guifg=#ff00ff guibg=#dadada gui=NONE cterm=NONE
 hi CursorLine           guifg=NONE guibg=#666666 gui=NONE cterm=NONE
 hi CursorColumn         guifg=NONE guibg=#666666 gui=NONE cterm=NONE
