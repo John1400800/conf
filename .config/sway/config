@@ -5,13 +5,13 @@ set $down j
 set $up k
 set $right l
 
-set $browser firefox
+set $menu wmenu-run -f "Terminus Bold 14" -N ffffff99 -n 000000 -S 0000ff99 -s ffffff -i # -l 10
 set $term footclient
-exec foot -s
-set $menu wmenu-run -f "Terminus Bold 14" -N ffffff -n 000000 -S ffffff -s 0000ff -i -l 10
+set $browser firefox
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
+exec foot -s
 exec swayidle -w \
 	timeout 303 'swaylock -f -c 000000' \
 	timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -26,12 +26,16 @@ bindsym $mod+d		exec $menu
 bindsym $mod+Return	exec $term
 bindsym $mod+Shift+b	exec $browser
 
-
 bindsym $mod+Shift+q	kill
 # Reload the configuration file
 bindsym $mod+Shift+c	reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e	exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
 floating_modifier $mod normal
 
 # Move your focus around
@@ -122,17 +126,18 @@ client.placeholder      #000000 #00000070 #FFFFFF #FF006680 #00000070
 bar {
     position top
     gaps 0px 6px
-    status_command i3blocks
+    status_command i3status
+
     colors {
     	background #FFFFFF99
-    	statusline #00000099
+    	statusline #0000FF79
     	separator  #000000
 
-	focused_workspace  #0000FF #0000FF70 #FFFFFF
-	active_workspace   #0000FF #0000FF70 #FFFFFF
-	inactive_workspace #FF00FF #FF00FF70 #FFFFFF
-	urgent_workspace   #FF0066 #FF006670 #FFFFFF
-	binding_mode       #AC00FF #AC00FF70 #FFFFFF
+	focused_workspace  #0000FF #0000FF75 #FFFFFF
+	active_workspace   #0000FF #0000FF75 #FFFFFF
+	inactive_workspace #FF00FF #FF00FF75 #FFFFFF
+	urgent_workspace   #FF0066 #FF006675 #FFFFFF
+	binding_mode       #AC00FF #AC00FF75 #FFFFFF
     }
 }
 
