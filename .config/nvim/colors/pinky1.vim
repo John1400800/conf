@@ -2,12 +2,15 @@ hi clear
 syntax reset
 let g:colors_name = "mycolorscheme"
 
+hi! link String Constant
+hi! link Special Statement
+
 "TODO
 hi Cursor       guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
 hi Normal       guifg=#000000 guibg=NONE gui=NONE cterm=NONE 
 hi Folded       guifg=#ff00ff guibg=#dadada gui=NONE cterm=NONE
 hi CursorLineNr guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
-hi QuickFixLine guifg=#FFFFFF guibg=#00DB96 gui=NONE cterm=NONE
+hi QuickFixLine guifg=NONE    guibg=#B3C3FF gui=NONE cterm=NONE
 hi StatusLine   guifg=#0000ff guibg=#dadada gui=NONE cterm=NONE
 hi StatusLineNC guifg=#000000 guibg=#dadada gui=NONE cterm=NONE
 hi StatusLineTerm       guifg=#ff00ff guibg=#dadada gui=NONE cterm=NONE
@@ -52,7 +55,6 @@ hi Identifier   guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
 hi Statement    guifg=#ff0066 guibg=NONE gui=NONE cterm=NONE
 hi PreProc      guifg=#AC00FF guibg=NONE gui=NONE cterm=NONE
 hi Type         guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
-hi Special      guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
 hi Tag                  guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
 hi Directory    guifg=#0000ff guibg=NONE gui=bold cterm=bold
 hi Conceal              guifg=#ff0066 guibg=NONE gui=NONE cterm=NONE

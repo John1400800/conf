@@ -16,3 +16,10 @@ vim.api.nvim_set_keymap('n', '<F4>', ':nohlsearch<CR>', { noremap = true, silent
 
 vim.cmd.colorscheme 'pinky1'
 vim.opt.background = 'light'
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c",
+  callback = function()
+    vim.opt_local.makeprg = "gcc %"
+  end,
+})

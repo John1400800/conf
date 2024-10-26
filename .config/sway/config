@@ -9,13 +9,14 @@ set $menu wmenu-run -f "Terminus Bold 14" -N ffffff99 -n 000000 -S 0000ff99 -s f
 set $term footclient
 set $browser firefox
 
-output * bg ~/Загрузки/1920x1080-px-anime-Clannad-winter-1512609-wallhere.com.jpg fill
+output * bg ~/download/wallpaper1.jpg fill
 
+exec swaylock -f -i ~/download/wallpaper1.jpg
 exec foot -s
 exec swayidle -w \
-	timeout 303 'swaylock -f -c 000000' \
+	timeout 303 'swaylock -f -i ~/download/wallpaper1.jpg' \
 	timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-	before-sleep 'swaylock -f -c 000000'
+	before-sleep 'swaylock -f -i ~/download/wallpaper1.jpg'
 
 input type:touchpad {
     tap enabled
@@ -36,6 +37,10 @@ bindsym $mod+Shift+q	kill
 bindsym $mod+Shift+c	reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e	exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+bindsym XF86MonBrightnessUp   exec backlight.sh +
+bindsym XF86MonBrightnessDown exec backlight.sh -
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
@@ -65,6 +70,8 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -148,6 +155,7 @@ bar {
 
 font pango:FontAwesome 14, Terminus Bold 14
 gaps inner 6px
+default_border normal 3
 for_window [app_id="footclient"] border pixel 3
 
 include /etc/sway/config.d/*
