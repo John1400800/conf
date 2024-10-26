@@ -9,7 +9,7 @@ set $menu wmenu-run -f "Terminus Bold 14" -N ffffff99 -n 000000 -S 0000ff99 -s f
 set $term footclient
 set $browser firefox
 
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Загрузки/1920x1080-px-anime-Clannad-winter-1512609-wallhere.com.jpg fill
 
 exec foot -s
 exec swayidle -w \
