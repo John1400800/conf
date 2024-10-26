@@ -59,6 +59,8 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
+# cicle throw workspaces
+bindsym $mod+Tab workspace next
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -70,8 +72,6 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -129,11 +129,11 @@ mode "resize" {
 }
 
 # class                 border  bground   text    indicator child_border
-client.focused          #0000FF #0000FF70 #FFFFFF #FF00FF80 #0000FF70
-client.focused_inactive #FF00FF #FF00FF70 #FFFFFF #FF006680 #FF00FF70
-client.unfocused        #AC00FF #AC00FF70 #FFFFFF #FF006680 #AC00FF70
-client.urgent           #FF0066 #FF006670 #FFFFFF #FF00FF80 #FF006670
-client.placeholder      #000000 #00000070 #FFFFFF #FF006680 #00000070
+client.focused          #FF00FF #FF00FF72 #FFFFFF #FF0066   #FF00FF72
+client.focused_inactive #AC00FF #AC00FF60 #FFFFFF #FF0066   #AC00FF60
+client.unfocused        #0000FF #0000FF60 #FFFFFF #FF0066   #0000FF60
+client.urgent           #FF0066 #FF006660 #FFFFFF #FF00FF   #FF006660
+client.placeholder      #000000 #00000060 #FFFFFF #FF0066   #00000060
 
 bar {
     position top
@@ -145,11 +145,11 @@ bar {
     	statusline #0000FF99
     	separator  #0000FF
 
-	focused_workspace  #0000FF #0000FF75 #FFFFFF
-	active_workspace   #0000FF #0000FF75 #FFFFFF
-	inactive_workspace #FF00FF #FF00FF75 #FFFFFF
-	urgent_workspace   #FF0066 #FF006675 #FFFFFF
-	binding_mode       #AC00FF #AC00FF75 #FFFFFF
+	focused_workspace  #FF00FF #FF00FF72 #FFFFFF
+	active_workspace   #FF0000 #FF000060 #FFFFFF
+	inactive_workspace #0000FF #0000FF60 #FFFFFF
+	urgent_workspace   #FF0066 #FF006660 #FFFFFF
+	binding_mode       #FF0066 #FF006660 #FFFFFF
     }
 }
 

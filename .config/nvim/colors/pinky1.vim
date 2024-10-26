@@ -17,9 +17,9 @@ hi StatusLineTerm       guifg=#ff00ff guibg=#dadada gui=NONE cterm=NONE
 hi StatusLineTermNC     guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi VertSplit    guifg=#dadada guibg=#dadada gui=NONE cterm=NONE
 hi Pmenu        guifg=#000000 guibg=#dadada gui=NONE cterm=NONE
-hi PmenuSel     guifg=#dadada guibg=#0000ff gui=NONE cterm=NONE
-hi PmenuSbar    guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
-hi PmenuThumb   guifg=NONE    guibg=#0000ff gui=NONE cterm=NONE
+hi PmenuSel     guifg=#ffffff guibg=#ff00ff gui=NONE cterm=NONE
+hi PmenuSbar    guifg=NONE    guibg=NONE    gui=NONE cterm=NONE
+hi PmenuThumb   guifg=NONE    guibg=#ff00ff gui=NONE cterm=NONE
 hi TabLine      guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi TabLineFill  guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi TabLineSel   guifg=#0000ff guibg=#dadada gui=NONE cterm=NONE
@@ -42,7 +42,7 @@ hi MatchParen   guifg=#ffffff guibg=#ff00ff gui=NONE cterm=NONE
 hi Search       guifg=#ffffff guibg=#0000ff gui=NONE cterm=NONE
 hi IncSearch    guifg=#ffffff guibg=#AC00FF gui=NONE cterm=NONE
 hi CurSearch    guifg=#ffffff guibg=#AC00FF gui=NONE cterm=NONE
-hi WildMenu     guifg=#dadada guibg=#0000ff gui=NONE cterm=NONE
+hi WildMenu     guifg=#dadada guibg=#ff00ff gui=NONE cterm=NONE
 hi ColorColumn          guifg=NONE guibg=#ffffff gui=NONE cterm=NONE
 hi lCursor              guifg=#000000 guibg=#ff00ff gui=NONE cterm=NONE
 " hi SpellBad             guifg=#ff0066 guibg=NONE guisp=#ff0066 gui=undercurl cterm=underline
