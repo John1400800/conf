@@ -17,9 +17,14 @@ exec swayidle -w \
 	timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 	before-sleep 'swaylock -f -c 000000'
 
-input "1267:12764:ELAN2204:00_04F3:31DC_Touchpad" {
+input type:touchpad {
     tap enabled
     natural_scroll enabled
+}
+
+input type:keyboard {
+    xkb_layout  "us,ru"
+    xkb_options "grp:alt_shift_toggle"
 }
 
 bindsym $mod+d		exec $menu
@@ -130,8 +135,8 @@ bar {
 
     colors {
     	background #FFFFFF99
-    	statusline #0000FF79
-    	separator  #000000
+    	statusline #0000FF99
+    	separator  #0000FF
 
 	focused_workspace  #0000FF #0000FF75 #FFFFFF
 	active_workspace   #0000FF #0000FF75 #FFFFFF
