@@ -129,9 +129,9 @@ mode "resize" {
 }
 
 # class                 border  bground   text    indicator child_border
-client.focused          #FF00FF #FF00FF72 #FFFFFF #FF0066   #FF00FF72
+client.focused          #0000FF #0000FF60 #FFFFFF #FF0066   #0000FF60
 client.focused_inactive #AC00FF #AC00FF60 #FFFFFF #FF0066   #AC00FF60
-client.unfocused        #0000FF #0000FF60 #FFFFFF #FF0066   #0000FF60
+client.unfocused        #FF00FF #FF00FF60 #FFFFFF #FF0066   #FF00FF60
 client.urgent           #FF0066 #FF006660 #FFFFFF #FF00FF   #FF006660
 client.placeholder      #000000 #00000060 #FFFFFF #FF0066   #00000060
 
@@ -145,9 +145,9 @@ bar {
     	statusline #0000FF99
     	separator  #0000FF
 
-	focused_workspace  #FF00FF #FF00FF72 #FFFFFF
+	focused_workspace  #0000FF #0000FF60 #FFFFFF
 	active_workspace   #FF0000 #FF000060 #FFFFFF
-	inactive_workspace #0000FF #0000FF60 #FFFFFF
+	inactive_workspace #FF00FF #FF00FF60 #FFFFFF
 	urgent_workspace   #FF0066 #FF006660 #FFFFFF
 	binding_mode       #FF0066 #FF006660 #FFFFFF
     }
