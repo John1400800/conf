@@ -1,7 +1,6 @@
 hi clear
 syntax reset
 let g:colors_name = "mycolorscheme"
-set background=light
 
 "TODO
 hi Cursor       guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE

@@ -13,3 +13,6 @@ vim.opt.expandtab = true
 vim.opt.scrolloff = 5
 
 vim.api.nvim_set_keymap('n', '<F4>', ':nohlsearch<CR>', { noremap = true, silent = true })
+
+vim.cmd.colorscheme 'pinky1'
+vim.opt.background = 'light'
