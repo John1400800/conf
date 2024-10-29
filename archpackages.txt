@@ -12,6 +12,7 @@ linux-firmware 20241017.22a6c7dc-1
 man-db 2.13.0-1
 neofetch 7.1.0-2
 neovim 0.10.2-2
+openssh 9.9p1-2
 pacman-contrib 1.10.6-2
 sudo 1.9.16-1
 sway 1:1.9-5

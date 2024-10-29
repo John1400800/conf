@@ -161,7 +161,7 @@ bar {
 }
 
 font pango:FontAwesome 14, Terminus Bold 14
-gaps inner 6px
+gaps inner 6
 default_border normal 3
 for_window [app_id="footclient"] border pixel 3
 
