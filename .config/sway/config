@@ -11,7 +11,8 @@ set $browser firefox
 
 output * bg ~/download/wallpaper1.jpg fill
 
-exec swaylock -f -i ~/download/wallpaper1.jpg
+exec wlsunset -t 5100
+# exec swaylock -f -i ~/download/wallpaper1.jpg
 exec foot -s
 exec swayidle -w \
 	timeout 203 'swaylock -f -i ~/download/wallpaper1.jpg' \
@@ -162,7 +163,7 @@ bar {
 
 font pango:FontAwesome 14, Terminus Bold 14
 gaps inner 6
-default_border normal 3
-for_window [app_id="footclient"] border pixel 3
+default_border pixel 3
+# for_window [app_id="footclient"] border pixel 3
 
 include /etc/sway/config.d/*
