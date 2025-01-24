@@ -36,7 +36,7 @@ layout {
 }
 
 spawn-at-startup "waybar"
-spawn-at-startup "sh" "-c" "exec swayidle -w timeout 10 'swaylock -f -i ~/download/wallpaper1.jpg' timeout 7 'systemctl sleep' before-sleep 'swaylock -f -i ~/download/wallpaper1.jpg'"
+// spawn-at-startup "sh" "-c" "exec swayidle -w timeout 10 'swaylock -f -i ~/download/wallpaper1.jpg' timeout 7 'systemctl sleep' before-sleep 'swaylock -f -i ~/download/wallpaper1.jpg'"
 spawn-at-startup "swaybg" "-i" "download/wallpaper1.jpg"
 spawn-at-startup "wlsunset" "-l" "55.7483" "-L" "37.6171"
 spawn-at-startup "foot" "-s"
@@ -72,6 +72,7 @@ binds {
     Mod+Return { spawn "footclient"; }
     // Mod+D { spawn "sh" "-c" "exec wmenu-run -f 'Terminus Bold 14' -N ffffff99 -n 000000 -S 0000ff99 -s ffffff -i"; }
     Mod+D { spawn "fuzzel"; }
+    Mod+M { spawn "killall" "-SIGUSR1" "waybar"; }
     Mod+Shift+B { spawn "firefox";}
 
     Super+Alt+L { spawn "sh" "-c" "exec swaylock -f -i ~/download/wallpaper1.jpg"; }
