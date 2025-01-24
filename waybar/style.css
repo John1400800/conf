@@ -20,7 +20,7 @@ tooltip {
   border: 3 solid transparent;
 }
 
-.modules-center, .modules-right {
+.modules-left, .modules-center, .modules-right {
   padding: 0 6;
   background: linear-gradient(white, white) padding-box,
               linear-gradient(to right, #00f, #80f) border-box;
