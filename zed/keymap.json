@@ -1,0 +1,57 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+// [
+//   {
+//     "bindings": {
+//       "ctrl-m": "menu::Confirm",
+//       "ctrl-b": "workspace::ToggleLeftDock",
+//       "ctrl-j": "workspace::ToggleBottomDock"
+//     }
+//   },
+//   {
+//     "context": "Editor && mode==full",
+//     "bindings": {
+//       "ctrl-h": "vim::Left"
+//     }
+//   },
+//   {
+//     "context": "Editor && mode==Insert",
+//     "bindings": {
+//       "ctrl-h": "vim::Backspace"
+//     }
+//   },
+//   {
+//     "context": "Editor && showing_completions",
+//     "bindings": {
+//       "ctrl-m": "editor::ConfirmCompletion"
+//     }
+//   },
+//   {
+//     "context": "ContextEditor > Editor",
+//     "bindings": {
+//       "ctrl-m": "assistant::ConfirmCommand"
+//     }
+//   },
+//   {
+//     "context": "vim_mode == literal",
+//     "use_layout_keys": true,
+//     "bindings": {
+//       "ctrl-m": ["vim::Literal", ["ctrl-m", "\u000D"]]
+//     }
+//   },
+//   {
+//     "context": "BufferSearchBar",
+//     "use_layout_keys": true,
+//     "bindings": {
+//       "ctrl-m": "buffer_search::FocusEditor",
+//       "ctrl-p": "search::PreviousHistoryQuery",
+//       "ctrl-n": "search::NextHistoryQuery"
+//     }
+//   }
+// ]
+//

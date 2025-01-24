@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#waybar {
+	font-family: "Iosevka", "Font Awesome 6 Free", monospace;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+window > box {
+  margin: 3 6;
+  margin-bottom: 0;
+}
+
+tooltip {
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, #00f, #80f) border-box;
+  border-radius: 16;
+  border: 3 solid transparent;
+}
+
+.modules-center, .modules-right {
+  padding: 0 6;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, #00f, #80f) border-box;
+  border-radius: 16;
+  border: 3 solid transparent;
+}
+
+#cpu, #memory, #temperature, #backlight, #clock, #pulseaudio, #network, #battery {
+  color: #00f;
+  padding: 0 6;
+}
+
+#workspaces button {
+	padding: 0 6;
+	color: #00f;
+}
+
+#workspaces button.active {
+	color: #00f;
+}
+
+#workspaces button.focused {
+	color: #00f;
+	font-weight: bold;
+}
