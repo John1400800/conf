@@ -58,7 +58,7 @@
       ]
     },
     "clock": {
-        "format": "{:%e %B %H:%M}  ",
+        "format": " {:%H:%M   %e %B}",
         "format-alt": "{:%A, %B %d, %Y (%R)}  ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
