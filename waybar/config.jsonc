@@ -4,7 +4,7 @@
     "spacing": 4,
     "modules-left": [ "niri/workspaces", "niri/window"  ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "cpu", "memory", "temperature", "network", "backlight", "battery" ],
+    "modules-right": [ "cpu", "memory", "temperature", "network", "backlight", "niri/language", "battery" ],
     "niri/workspaces": {
         "all-outputs": true,
         "format": ""
@@ -43,6 +43,9 @@
     "backlight": {
         "format": " {percent}%"
     },
+    "niri/language": {
+        "format": " {short}"
+    },
     "battery": {
         "states": {
             "warning": 20,
@@ -58,8 +61,8 @@
       ]
     },
     "clock": {
-        "format": " {:%H:%M   %e %B}",
-        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "format": " {:%R}",
+        "format-alt": " {:%R  %A %e %B %Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "year",
