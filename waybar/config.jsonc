@@ -4,7 +4,7 @@
     "spacing": 4,
     "modules-left": [ "niri/workspaces", "niri/window"  ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "cpu", "memory", "temperature", "network", "backlight", "niri/language", "battery" ],
+    "modules-right": [ "memory", "cpu", "temperature", "pulseaudio", "network", "backlight", "niri/language", "battery" ],
     "niri/workspaces": {
         "all-outputs": true,
         "format": ""
@@ -14,21 +14,26 @@
         "tooltip": false
     },
     "memory": {
-        "format": " {used} GiB"
+        "format": " {used} GiB"
     },
     "temperature": {
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
+    },
+    "custom/audio": {
+        "format": "{}",
+        "exec": "exec ~/.config/waybar/volume.sh",
+        "interval": 1
     },
     "pulseaudio": {
-        "format": "{icon}{volume}%",
-        "format-muted": " ",
+        "format": "{icon} {volume}%",
+        "icon-size": 20,
+        "format-muted": "",
         "format-icons": {
           "default": [
-            " ",
-            " ",
-            " "
+            "",
+            ""
           ]
         }
       },
