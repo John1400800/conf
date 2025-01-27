@@ -1,9 +1,5 @@
 # .bash_profile
 
-# Autologin on tty1
-if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-    exec startx
-fi
+[[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 && $(tty) == "/dev/tty1" ]] && exec dbus-run-session niri --session
 
-# Get the aliases and functions
-[ -f $HOME/.bashrc ] && . $HOME/.bashrc
+[[ -f ~/.bashrc ]] && . ~/.bashrc
