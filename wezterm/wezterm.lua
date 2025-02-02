@@ -4,7 +4,7 @@ return {
   -- Set the background transparency
   hide_tab_bar_if_only_one_tab = true,
   window_decorations = "RESIZE",
-  -- window_background_opacity = 0.65,
+  window_background_opacity = 0.75,
 
   -- Define the color palette
   colors = {
@@ -38,10 +38,16 @@ return {
     },
   },
 
+  -- window_padding = {
+  --     left = 0,
+  --     right = 0,
+  --     top = 0,
+  --     bottom = 0,
+  -- },
+
   -- Enable font ligatures
   font = wezterm.font('Iosevka'),
-  font_size = 12.0,
 
   -- Set the font size
-  font_size = 12.0,
+  font_size = 14.0,
 }

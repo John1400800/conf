@@ -5,7 +5,12 @@ let g:colors_name = "mycolorscheme"
 hi! link String Constant
 hi! link Special Statement
 
-"TODO
+hi NormalFloat                       guibg=#dadada
+hi DiagnosticHint      guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
+hi LspInlayHint        guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
+hi DiagnosticWarn      guifg=#AC00FF guibg=NONE gui=italic cterm=NONE
+hi DiagnosticError     guifg=#ff0066 guibg=NONE gui=italic cterm=NONE
+
 hi Cursor       guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
 hi Normal       guifg=#000000 guibg=NONE gui=NONE cterm=NONE 
 hi Folded       guifg=#ff00ff guibg=#dadada gui=NONE cterm=NONE
@@ -33,8 +38,8 @@ hi FoldColumn           guifg=#AC00FF guibg=NONE gui=NONE cterm=NONE
 hi SignColumn           guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Underlined           guifg=#AC00FF guibg=NONE gui=underline cterm=underline
 hi Error        guifg=#ff0066 guibg=#ffffff gui=reverse cterm=reverse
-hi ErrorMsg     guifg=#ff0066 guibg=#ffffff gui=reverse cterm=reverse
-hi WarningMsg   guifg=#AC00FF guibg=#ffffff gui=NONE cterm=NONE
+hi ErrorMsg     guifg=#ff0066 guibg=NONE gui=NONE cterm=NONE
+hi WarningMsg   guifg=#AC00FF guibg=NONE gui=NONE cterm=NONE
 hi MoreMsg              guifg=#000000 guibg=#ffffff gui=bold cterm=bold
 hi ModeMsg      guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
 hi Question     guifg=#ff00ff guibg=NONE gui=bold cterm=bold
@@ -46,13 +51,9 @@ hi CurSearch    guifg=#ffffff guibg=#AC00FF gui=NONE cterm=NONE
 hi WildMenu     guifg=#dadada guibg=#ff00ff gui=NONE cterm=NONE
 hi ColorColumn          guifg=NONE guibg=#ffffff gui=NONE cterm=NONE
 hi lCursor              guifg=#000000 guibg=#ff00ff gui=NONE cterm=NONE
-" hi SpellBad             guifg=#ff0066 guibg=NONE guisp=#ff0066 gui=undercurl cterm=underline
-" hi SpellCap             guifg=#0000ff guibg=NONE guisp=#0000ff gui=undercurl cterm=underline
-" hi SpellLocal           guifg=#878700 guibg=NONE guisp=#878700 gui=undercurl cterm=underline
-" hi SpellRare            guifg=#008787 guibg=NONE guisp=#008787 gui=undercurl cterm=underline
 hi Comment      guifg=#00B7DB guibg=NONE gui=NONE cterm=NONE
 hi Constant     guifg=#ff00ff guibg=NONE gui=NONE cterm=NONE
-hi Identifier   guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
+hi Identifier   guifg=NONE guibg=NONE gui=NONE cterm=NONE
 hi Statement    guifg=#ff0066 guibg=NONE gui=NONE cterm=NONE
 hi PreProc      guifg=#AC00FF guibg=NONE gui=NONE cterm=NONE
 hi Type         guifg=#0000ff guibg=NONE gui=NONE cterm=NONE

@@ -1,0 +1,9 @@
+font-family             = "Iosevka"
+font-size               = 16
+window-decoration       = false 
+background-opacity      = 0.75
+window-padding-x        = 5
+window-padding-y        = 5
+theme                   = pink1
+cursor-style-blink      = false
+shell-integration-features = no-cursor
