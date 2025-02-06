@@ -5,17 +5,17 @@ let g:colors_name = "mycolorscheme"
 hi! link String Constant
 hi! link Special Statement
 
-hi NormalFloat                       guibg=#dadada
+hi NormalFloat         guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi DiagnosticHint      guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
 hi LspInlayHint        guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
 hi DiagnosticWarn      guifg=#AC00FF guibg=NONE gui=italic cterm=NONE
 hi DiagnosticError     guifg=#ff0066 guibg=NONE gui=italic cterm=NONE
 
 hi Cursor       guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
-hi Normal       guifg=#000000 guibg=NONE gui=NONE cterm=NONE 
+hi Normal       guifg=#000000 guibg=NONE    gui=NONE cterm=NONE 
 hi Folded       guifg=#ff00ff guibg=#dadada gui=NONE cterm=NONE
-hi Function     guifg=NONE guibg=NONE gui=NONE cterm=NONE
-hi CursorLineNr guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
+hi Function     guifg=NONE    guibg=NONE    gui=NONE cterm=NONE
+hi CursorLineNr guifg=#0000ff guibg=NONE    gui=NONE cterm=NONE
 hi QuickFixLine guifg=NONE    guibg=#FFCCFF gui=NONE cterm=NONE
 hi StatusLine   guifg=#0000ff guibg=#dadada gui=NONE cterm=NONE
 hi StatusLineNC guifg=#000000 guibg=#dadada gui=NONE cterm=NONE
@@ -29,8 +29,8 @@ hi PmenuThumb   guifg=NONE    guibg=#0000ff gui=NONE cterm=NONE
 hi TabLine      guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi TabLineFill  guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi TabLineSel   guifg=#0000ff guibg=#dadada gui=NONE cterm=NONE
-hi NonText      guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
-hi SpecialKey   guifg=#ff00ff guibg=NONE gui=NONE cterm=NONE
+hi NonText      guifg=#ffffff guibg=NONE    gui=NONE cterm=NONE
+hi SpecialKey   guifg=#ff00ff guibg=NONE    gui=NONE cterm=NONE
 hi Visual       guifg=#000000 guibg=#CCCCFF gui=NONE cterm=NONE
 hi VisualNOS            guifg=NONE guibg=#ff0066 gui=NONE cterm=NONE
 hi LineNr       guifg=#000000 guibg=NONE gui=NONE cterm=NONE

@@ -9,43 +9,44 @@ input {
         tap
         natural-scroll
     }
-    focus-follows-mouse
 }
 
 layout {
     gaps 6
-    // center-focused-column "on-overflow"
+    center-focused-column "on-overflow"
     preset-column-widths {
-        proportion 0.66667
+        proportion 0.66666666
         proportion 0.5
-        proportion 0.33333
+        proportion 0.33333333
     }
     preset-window-heights {
-        proportion 0.66667
+        proportion 0.66666666
         proportion 0.5
-        proportion 0.33333
+        proportion 0.33333333
     }
-    default-column-width { proportion 0.33333; }
+    default-column-width { proportion 0.33333333; }
     focus-ring {
         off
     }
-    border {
+    /-border {
         width 3
-        active-gradient from="#00f" to="#80f" angle=90
-        inactive-gradient from="#f0f" to="#0bf" angle=90
+        active-gradient from="#00f" to="#80f" angle=90 
+        inactive-gradient from="#f0f" to="#0bf" angle=90 
     }
 }
 
-spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "download/wallpaper1.jpg"
-spawn-at-startup "wlsunset" "-l" "55.7483" "-L" "37.6171"
-spawn-at-startup "foot" "-s"
+// spawn-at-startup "sh" "-c" "exec swayidle -w timeout 10 'swaylock -f -i ~/download/wallpaper1.jpg' timeout 7 'systemctl sleep' before-sleep 'swaylock -f -i ~/download/wallpaper1.jpg'"
+
+// spawn-at-startup "waybar"
+// spawn-at-startup "swaybg" "-i" "download/wallpaper1.jpg"
+// spawn-at-startup "wlsunset" "-l" "55.7483" "-L" "37.6171"
+// spawn-at-startup "foot" "-s"
 
 prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-window-rule {
+/-window-rule {
     geometry-corner-radius 16
     clip-to-geometry true
 }
@@ -108,6 +109,16 @@ binds {
     Mod+Shift+K     { move-window-up-or-to-workspace-up; }
     Mod+Shift+L     { move-column-right; }
 
+    // Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    // Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    // Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    // Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // Mod+WheelScrollRight      { focus-column-right; }
+    // Mod+WheelScrollLeft       { focus-column-left; }
+    // Mod+Ctrl+WheelScrollRight { move-column-right; }
+    // Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -142,21 +153,42 @@ binds {
     F11 { fullscreen-window; }
     Mod+C { center-column; }
 
+    // Finer width adjustments.
+    // This command can also:
+    // * set width in pixels: "1000"
+    // * adjust width in pixels: "-5" or "+5"
+    // * set width as a percentage of screen width: "25%"
+    // * adjust width as a percentage of screen width: "-10%" or "+10%"
+    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
+    // set-column-width "100" will make the column occupy 200 physical screen pixels.
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 
+    // Finer height adjustments when in column with other windows.
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
+    // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // Actions to switch layouts.
+    // Note: if you uncomment these, make sure you do NOT have
+    // a matching layout switch hotkey configured in xkb options above.
+    // Having both at once on the same hotkey will break the switching,
+    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
+    // Mod+Space       { switch-layout "next"; }
+    // Mod+Shift+Space { switch-layout "prev"; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
+    // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
+    // Powers off the monitors. To turn them back on, do any input like
+    // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }

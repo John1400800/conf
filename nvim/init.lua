@@ -13,6 +13,8 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.scrolloff = 5
 opt.linebreak = true
+opt.list = true
+opt.listchars = 'space:⋅'
 opt.splitbelow = true
 opt.splitright = true
 opt.dictionary:append('~/download/russian.utf-8')
@@ -55,11 +57,16 @@ lspconfig.lua_ls.setup {
     })
   end,
   settings = {
-    Lua = {}
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { "vim" },
+      },
+    }
   }
 }
-lspconfig.ruff.setup {}
 lspconfig.pylsp.setup {}
+lspconfig.ruff.setup {}
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
@@ -83,12 +90,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+require('supermaven-nvim').setup {}
+
+
 vim.keymap.set({ 'n', 'v' }, '<Esc>', '<Esc>:nohlsearch<CR>', { noremap = true, silent = true })
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 augroup('FileTypeSettings', { clear = true })
+autocmd('FileType', {
+  group = 'FileTypeSettings',
+  pattern = 'kdl',
+  callback = function(args)
+    vim.treesitter.start(args.buf, 'kdl')
+    opt.commentstring = '// %s'
+  end
+})
 autocmd('FileType', {
   group = 'FileTypeSettings',
   pattern = { 'text', 'markdown' },
