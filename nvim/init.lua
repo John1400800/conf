@@ -13,8 +13,6 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.scrolloff = 5
 opt.linebreak = true
-opt.list = true
-opt.listchars = 'space:⋅'
 opt.splitbelow = true
 opt.splitright = true
 opt.dictionary:append('~/download/russian.utf-8')
@@ -67,31 +65,59 @@ lspconfig.lua_ls.setup {
 }
 lspconfig.pylsp.setup {}
 lspconfig.ruff.setup {}
+lspconfig.sqls.setup {}
+lspconfig.texlab.setup {}
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function()
-    local buf_set_keymap = function(mode, lhs, rhs, desc)
-      vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, desc = desc })
-    end
-    buf_set_keymap('n', '<leader>;', function()
+  callback = function(args)
+    local bufnr = args.buf
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', '<leader>;', function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, 'Toggle Inlay Hints')
-    buf_set_keymap('n', '<leader>d', vim.diagnostic.open_float, 'Set diagnostics to loclist')
-    buf_set_keymap('n', '<leader>D', vim.diagnostic.setloclist, 'Set diagnostics to loclist')
-    buf_set_keymap('n', '<leader>a', vim.lsp.buf.code_action, 'LSP Code Action')
-    buf_set_keymap('n', '<leader>s', vim.lsp.buf.document_symbol, 'Document Symbols')
-    buf_set_keymap('n', '<leader>r', vim.lsp.buf.rename, 'Rename Symbol')
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Перейти к определению' })
+    end, opts)
+    vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>D', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<leader>s', vim.lsp.buf.document_symbol, opts)
+    vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, vim.tbl_extend('force', opts, { desc = "Перейти к определению" }))
     vim.keymap.set('n', '<C-w>d', function()
-        vim.cmd('split')
-        vim.lsp.buf.definition()
-      end,
-      { noremap = true, silent = true, desc = 'Открыть определение в вертикальном сплите' })
+      vim.cmd('split')
+      vim.lsp.buf.definition()
+    end, vim.tbl_extend('force', opts, { desc = "Открыть определение в вертикальном сплите" }))
+  end,
+})
+
+vim.api.nvim_create_autocmd('LspDetach', {
+  callback = function(args)
+    local bufnr = args.buf
+    local keymaps = {
+      '<leader>;', '<leader>d', '<leader>D', '<leader>a',
+      '<leader>s', '<leader>r', 'gd', '<C-w>d'
+    }
+    for _, key in ipairs(keymaps) do
+      pcall(vim.api.nvim_buf_del_keymap, bufnr, 'n', key)
+    end
   end,
 })
 
 require('supermaven-nvim').setup {}
-
+require("nvim-treesitter.configs").setup {
+  ensure_installed = { "c", "cpp", "kdl", "lua", "python", "rust", "vim", "markdown", "toml" },
+  sync_install = false,
+  highlight = { enable = true, disable = { "latex" } },
+  indent = { enable = true },
+  modules = {},          -- explicitly add an empty table for modules
+  ignore_install = {},   -- explicitly add an empty table for ignore_install
+  auto_install = true,   -- explicitly set auto_install to false
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      node_incremental = "v",
+      node_decremental = "V",
+    },
+  }
+}
 
 vim.keymap.set({ 'n', 'v' }, '<Esc>', '<Esc>:nohlsearch<CR>', { noremap = true, silent = true })
 
@@ -99,17 +125,18 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 augroup('FileTypeSettings', { clear = true })
+-- autocmd('FileType', {
+--   group = 'FileTypeSettings',
+--   pattern = {'kdl', 'cpp'},
+--   callback = function(args)
+--     vim.treesitter.start(args.buf, vim.bo[args.buf].filetype)
+--     vim.bo[args.buf].commentstring = '// %s'
+--   end
+-- })
+
 autocmd('FileType', {
   group = 'FileTypeSettings',
-  pattern = 'kdl',
-  callback = function(args)
-    vim.treesitter.start(args.buf, 'kdl')
-    opt.commentstring = '// %s'
-  end
-})
-autocmd('FileType', {
-  group = 'FileTypeSettings',
-  pattern = { 'text', 'markdown' },
+  pattern = { 'text', 'markdown', 'tex' },
   callback = function()
     opt.spell = true
     opt.spelllang = 'ru,en'
@@ -140,7 +167,7 @@ autocmd('FileType', {
   group = 'FileTypeSettings',
   pattern = 'tex',
   callback = function()
-    opt.makeprg = 'latexmk -aux-directory=/tmp/ -pdf %'
+    opt.makeprg = 'tectonic %' -- 'latexmk -pdf -aux-directory=/tmp/ %'
   end,
 })
 
@@ -157,7 +184,7 @@ autocmd('TermOpen', {
 
 autocmd('FileType', {
   group = 'FileTypeSettings',
-  pattern = 'lua',
+  pattern = { 'lua', 'tex' },
   callback = function()
     opt.shiftwidth = 2
   end,

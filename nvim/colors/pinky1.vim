@@ -5,11 +5,20 @@ let g:colors_name = "mycolorscheme"
 hi! link String Constant
 hi! link Special Statement
 
+hi! link @type.builtin Type
+hi! link @keyword.import Include
+hi! link @function.macro Macro
+hi! link @lsp.type.macro Macro
+hi! link plaintexControlSequence Type
+
 hi NormalFloat         guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi DiagnosticHint      guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
 hi LspInlayHint        guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
 hi DiagnosticWarn      guifg=#AC00FF guibg=NONE gui=italic cterm=NONE
 hi DiagnosticError     guifg=#ff0066 guibg=NONE gui=italic cterm=NONE
+
+hi @module      guifg=NONE    guibg=NONE    gui=italic cterm=NONE
+"hi plaintexControlSequence guifg=NONE guibg=NONE gui=italic,bold cterm=NONE
 
 hi Cursor       guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
 hi Normal       guifg=#000000 guibg=NONE    gui=NONE cterm=NONE 

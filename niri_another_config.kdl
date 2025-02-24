@@ -12,19 +12,19 @@ input {
 }
 
 layout {
-    gaps 6
-    center-focused-column "on-overflow"
+    // gaps 6
+    // center-focused-column "on-overflow"
     preset-column-widths {
-        proportion 0.66666666
+        proportion 0.66667
         proportion 0.5
-        proportion 0.33333333
+        proportion 0.33333
     }
     preset-window-heights {
-        proportion 0.66666666
+        proportion 0.66667
         proportion 0.5
-        proportion 0.33333333
+        proportion 0.33333
     }
-    default-column-width { proportion 0.33333333; }
+    default-column-width { proportion 0.33333; }
     focus-ring {
         off
     }
@@ -41,6 +41,12 @@ layout {
 // spawn-at-startup "swaybg" "-i" "download/wallpaper1.jpg"
 // spawn-at-startup "wlsunset" "-l" "55.7483" "-L" "37.6171"
 // spawn-at-startup "foot" "-s"
+
+// spawn-at-startup "xwayland-satellite"
+
+// environment {
+//     DISPLAY ":0"
+// }
 
 prefer-no-csd
 

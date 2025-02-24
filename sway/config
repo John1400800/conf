@@ -5,14 +5,15 @@ set $down j
 set $up k
 set $right l
 
-set $menu wmenu-run -f "Terminus Bold 14" -N ffffff99 -n 000000 -S 0000ff99 -s ffffff -i # -l 10
+# set $menu wmenu-run -f "Terminus Bold 14" -N ffffff99 -n 000000 -S 0000ff99 -s ffffff -i # -l 10
+set $menu fuzzel
 set $term footclient
 set $browser firefox
 
 # output * bg ~/download/wallpaper1.jpg fill
 output * bg #ffffff solid_color
 
-exec wlsunset -l 55.7483 -L 37.6171
+# exec wlsunset -l 55.7483 -L 37.6171
 # exec swaylock -f -i ~/download/wallpaper1.jpg
 exec foot -s
 exec swayidle -w \
@@ -21,6 +22,8 @@ exec swayidle -w \
 	before-sleep 'swaylock -f -i ~/download/wallpaper1.jpg'
 
 input type:touchpad {
+    dwt disable
+    dwtp disable
     tap enabled
     natural_scroll enabled
 }
@@ -39,10 +42,9 @@ bindsym $mod+Shift+q	kill
 # Reload the configuration file
 bindsym $mod+Shift+c	reload
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e	exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# bindsym $mod+Shift+e	exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-# bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+Shift+s exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
+bindsym $mod+Shift+s exec /usr/share/sway-contrib/grimshot copy anything
 
 bindsym XF86MonBrightnessUp   exec backlight.sh +
 bindsym XF86MonBrightnessDown exec backlight.sh -
@@ -139,6 +141,31 @@ mode "resize" {
     # Return to default mode
     bindsym $mod+r mode "default"
     bindsym Escape mode "default"
+}
+
+set {
+  $nag         exec swaynagmode
+  $nag_exit    $nag --exit
+  $nag_confirm $nag --confirm
+  $nag_select  $nag --select
+}
+mode "nag" {
+  bindsym {
+    Ctrl+d    mode "default"
+    Ctrl+c    $nag_exit
+    q         $nag_exit
+    Escape    $nag_exit
+    Return    $nag_confirm
+    Tab       $nag_select prev
+    Shift+Tab $nag_select next
+    Left      $nag_select next
+    Right     $nag_select prev
+    Up        $nag_select next
+    Down      $nag_select prev
+  }
+}
+bindsym {
+  $mod+Shift+e $nag -t "warning" -m "Exit Sway?" -b "Exit" "swaymsg exit" -b "Reload" "swaymsg reload"
 }
 
 # class                 border  bground   text    indicator child_border
