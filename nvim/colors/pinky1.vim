@@ -10,6 +10,7 @@ hi! link @keyword.import Include
 hi! link @function.macro Macro
 hi! link @lsp.type.macro Macro
 hi! link plaintexControlSequence Type
+hi! link helpSectionDelim Folded
 
 hi NormalFloat         guifg=NONE    guibg=#dadada gui=NONE cterm=NONE
 hi DiagnosticHint      guifg=#00B7DB guibg=NONE gui=italic cterm=NONE

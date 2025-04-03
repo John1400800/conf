@@ -7,14 +7,20 @@ input {
   }
   touchpad {
     tap
+    dwt
     natural-scroll
   }
-  focus-follows-mouse max-scroll-amount="40%"
 }
 
 layout {
   gaps 6
+  // struts {
+  //   top -6
+  // }
   center-focused-column "never" // "on-overflow"
+  always-center-single-column
+  // empty-workspace-above-first
+  default-column-display "tabbed"
   preset-column-widths {
     proportion 0.66667
     proportion 0.5
@@ -25,19 +31,44 @@ layout {
     proportion 0.5
     proportion 0.33333
   }
-  default-column-width { proportion 0.33333; }
+  default-column-width { proportion 0.5; }
   focus-ring {
     off
   }
   border {
-    width 3
+    width 2
     active-gradient from="#00f" to="#80f" angle=90
     inactive-gradient from="#f0f" to="#0bf" angle=90
+  }
+  shadow {
+    on
+    softness 8
+    spread 2
+    offset x=3 y=2
+    color "#0000ff66"
+    inactive-color "#00bbff66"
+  }
+  tab-indicator {
+    hide-when-single-tab
+    place-within-column
+    gap 6
+    width 3
+    length total-proportion=0.98
+    position "left"
+    gaps-between-tabs 6
+    corner-radius 16
+    active-color "#00f"
+    inactive-color "#f0f"
+  }
+  insert-hint {
+    // off
+    gradient from="#0000ff33" to="#ff00ff33" angle=90 relative-to="workspace-view"
   }
 }
 
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "download/wallpaper1.jpg"
+// spawn-at-startup "swaybg" "-c" "#ffffff"
 spawn-at-startup "wlsunset" "-l" "55.7483" "-L" "37.6171"
 spawn-at-startup "foot" "-s"
 
@@ -57,7 +88,7 @@ window-rule {
 
 window-rule {
   match app-id="wezterm"
-  default-column-width {}
+  default-column-width { }
 }
 
 window-rule {
@@ -73,15 +104,17 @@ window-rule {
   default-column-width { proportion 1.0; }
 }
 
-window-rule {
+/-window-rule {
   match app-id="footclient"
   default-column-width { proportion 0.33333; }
 }
 
 binds {
+  Mod+W { toggle-column-tabbed-display; }
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   Mod+Return { spawn "footclient"; }
+  // Mod+Return { spawn "sh" "-c" "alacritty msg create-window || exec alacritty"; }
   Mod+D { spawn "fuzzel"; }
   Mod+M { spawn "killall" "-SIGUSR1" "waybar"; }
   Mod+Shift+B { spawn "firefox";}
@@ -144,9 +177,9 @@ binds {
 
   Mod+R { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-window-height; }
+  Mod+E { expand-column-to-available-width; }
   Mod+F { maximize-column; }
-  Mod+Shift+F { reset-window-height; }
-  F11 { fullscreen-window; }
+  Mod+Shift+F { fullscreen-window; }
   Mod+C { center-column; }
 
   Mod+Minus { set-column-width "-10%"; }
@@ -155,8 +188,8 @@ binds {
   Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Equal { set-window-height "+10%"; }
 
-  Mod+V       { toggle-window-floating; }
-  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+  Mod+Space       { toggle-window-floating; }
+  Mod+Shift+Space { switch-focus-between-floating-and-tiling; }
 
   Mod+Shift+S { screenshot; }
   Ctrl+Print { screenshot-screen; }
