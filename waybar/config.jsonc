@@ -1,97 +1,96 @@
 {
-    "layer": "top",
-    "position": "top",
-    "spacing": 4,
-    "modules-left": [ "niri/workspaces", "niri/window"  ],
-    "modules-center": [ "clock" ],
-    "modules-right": [ "memory", "cpu", "temperature", "pulseaudio", "network", "backlight", "niri/language", "battery" ],
-    "niri/workspaces": {
-        "all-outputs": true,
-        "format": ""
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "right",
+  "spacing": 4,
+  "modules-left": [
+    "niri/workspaces",
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "battery",
+    "niri/language",
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "temperature",
+    "network",
+    "backlight"
+  ],
+  "niri/workspaces": {
+    "justify": "center", 
+    "all-outputs": true,
+    "format": ""
+  },
+  "cpu": {
+    "justify": "center", 
+    "format": "\n{usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "justify": "center", 
+    "format": "\n{used}\nGiB"
+  },
+  "temperature": {
+    "justify": "center", 
+    "critical-threshold": 80,
+    "format": "{icon}\n{temperatureC}°C",
+    "format-icons": ["", "", ""]
+  },
+  "pulseaudio": {
+    "justify": "center", 
+    "format": "{icon}\n{volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", ""]
     },
-    "cpu": {
-        "format": " {usage}%",
-        "tooltip": false
+    "on-click": "exec amixer set Master toggle"
+  },
+  "network": {
+    "justify": "center", 
+    "format-wifi": "",
+    "tooltip-format": "<tt><small>{essid}</small></tt>",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "",
+    "interval": 5
+  },
+  "backlight": {
+    "justify": "center", 
+    "format": "\n{percent}%"
+  },
+  "niri/language": {
+    "justify": "center", 
+    "format": "\n{short}",
+    "on-click": "exec niri msg action switch-layout next"
+  },
+  "battery": {
+    "justify": "center", 
+    "states": {
+      "warning": 20,
+      "critical": 10
     },
-    "memory": {
-        "format": " {used} GiB"
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
-    },
-    "custom/audio": {
-        "format": "{}",
-        "exec": "exec ~/.config/waybar/volume.sh",
-        "interval": 1
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "icon-size": 20,
-        "format-muted": "",
-        "format-icons": {
-          "default": [
-            "",
-            ""
-          ]
-        }
-      },
-     "network": {
-         "format-wifi": " {essid}",
-         "format-ethernet": " IP Leaked: {ipaddr}/{cidr}",
-         "format-linked": "{ifname} (No IP)",
-         "format-disconnected": " Disconnected",
-         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-         "interval": 5
-      },
-    "backlight": {
-        "format": " {percent}%"
-    },
-    "niri/language": {
-        "format": " {short}"
-    },
-    "battery": {
-        "states": {
-            "warning": 20,
-            "critical": 10
-        },
-        "format": "{icon}{capacity}%",
-        "format-charging": " {capacity}%",
-        "format-icons": [
-            " ",
-            " ",
-            " ",
-            " "
-      ]
-    },
-    "clock": {
-        "format": " {:%R}",
-        "format-alt": " {:%R   %a %e %b %Y}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "year",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions":  {
-            "on-click-right": "mode",
-            "on-scroll-up": "tz_up",
-            "on-scroll-down": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
-    },
-    "niri/window": {
-        "format": "{title}",
-        "icon": true
+    "format": "{icon}\n{capacity}%",
+    "format-charging": "\n{capacity}%",
+    "format-icons": ["", "", "", ""]
+  },
+  "clock": {
+    "justify": "center", 
+    "format": "\n{:%H\n%M}",
+    "format-alt": "\n{:%H\n%M\n\n%a\n%e\n%b\n%Y}", 
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1, 
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     }
+  }
 }

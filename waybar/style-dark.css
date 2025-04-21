@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+    box-shadow: none;
+    border: none;
+    font-family: "Iosevka", "Font Awesome 6 Free", monospace;
+    color: #00bbff; /* синий текст */
+}
+
+#waybar {
+    font-family: "Iosevka", "Font Awesome 6 Free", monospace;
+    background-color: rgba(0, 0, 0, 0); /* по-прежнему полностью прозрачный */
+}
+
+/* Окна */
+window > box {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 0px;
+    margin-right: 6px;
+}
+
+/* Модули слева, по центру и справа */
+.modules-left,
+.modules-center,
+.modules-right {
+    /* color: #00f; */
+    background-color: rgba(0, 0, 0, 0.65); /* заменили белое на чёрное */
+    box-shadow: 0px 1px 5px -3px #00bbff;
+    border-radius: 16px;
+    border: 2px solid #00bbff;
+    padding: 3px 2px;
+}
+
+/* Отдельные элементы */
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#clock,
+#pulseaudio,
+#network,
+#battery,
+#window {
+    padding: 3px 0;
+}
+
+/* Рабочие пространства */
+#workspaces button {
+    padding: 3px 0;
+    /* color: #00f; */
+}
+
+/* #workspaces button.active { */
+/*     color: #00f; */
+/* } */
+
+#workspaces button.focused {
+    /* color: #00f; */
+    font-weight: bold;
+}
+
+/* Подсказки */
+tooltip {
+    background-color: rgba(0, 0, 0, 0.65); /* заменили белое на чёрное */
+    border-radius: 16px;
+    border: 2px solid #00f;
+}

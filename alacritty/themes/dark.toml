@@ -1,0 +1,5 @@
+[colors]
+primary = { background = "#000000", foreground = "#ffffff" }
+cursor = { text = "#000000", cursor = "#ffffff" }
+normal = { black =   "#ffffff", red   =   "#FF0066", green =   "#00DB96", yellow =  "#f39c11", blue  =   "#0000FF", magenta = "#AC00FF", cyan  =   "#00B7DB", white =   "#dadada" }
+bright = { black =   "#999999", red   =   "#FF0066", green =   "#00DB96", yellow =  "#FFCC00", blue  =   "#0000FF", magenta = "#FF00FF", cyan  =   "#00B7DB", white =   "#dadada" }

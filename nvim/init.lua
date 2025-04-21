@@ -17,8 +17,21 @@ opt.splitbelow = true
 opt.splitright = true
 opt.dictionary:append('~/download/russian.utf-8')
 opt.langmap =
-[=[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯБЮЖЭХЪ;ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{},фисвуапршолдьтщзйкыегмцчнябюж.эхъ;abcdefghijklmnopqrstuvwxyz\,.\;/\'[]]=]
-opt.background = 'light'
+[=[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯБЮЖЭХЪ;ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{},фисвуапршолдьтщзйкыегмцчнябюжэхъ;abcdefghijklmnopqrstuvwxyz\,.\;\'[]]=]
+
+local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme")
+local result = handle:read("*a")
+handle:close()
+
+if result:match("prefer%-dark") then
+    opt.background = "dark"
+elseif result:match("prefer%-light") then
+    opt.background = "light"
+else
+    opt.background = "dark"  -- значение по умолчанию
+end
+
+opt.termguicolors = true
 vim.cmd.colorscheme('pinky1')
 vim.g.mapleader = ' '
 
@@ -70,31 +83,31 @@ autocmd('FileType', {
   end,
 })
 
-vim.lsp.config('*', {
-  capabilities = {
-    textDocument = {
-      semanticTokens = {
-        multilineTokenSupport = true,
-      },
-      completion = {
-        completionItem = {
-          snippetSupport = true,
-        }
-      }
-    }
-  },
-  root_markers = { '.git' },
-})
+-- vim.lsp.config('*', {
+--   capabilities = {
+--     textDocument = {
+--       semanticTokens = {
+--         multilineTokenSupport = true,
+--       },
+--       completion = {
+--         completionItem = {
+--           snippetSupport = true,
+--         }
+--       }
+--     }
+--   },
+--   root_markers = { '.git' },
+-- })
 
 vim.lsp.enable({'lua_ls', 'clangd', 'ruff', 'pylsp', 'sqls', 'texlab', 'rust_analyzer'})
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function()
-    vim.diagnostic.config({
-      virtual_text = true
-    })
-  end,
-})
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   callback = function()
+--     vim.diagnostic.config({
+--       virtual_text = true
+--     })
+--   end,
+-- })
 
 require('supermaven-nvim').setup {}
 require("nvim-treesitter.configs").setup {
