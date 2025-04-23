@@ -38,16 +38,16 @@ return {
     },
   },
 
-  -- window_padding = {
-  --     left = 0,
-  --     right = 0,
-  --     top = 0,
-  --     bottom = 0,
-  -- },
+  window_padding = {
+      left = 5,
+      right = 2,
+      top = 5,
+      bottom = 2,
+  },
 
   -- Enable font ligatures
   font = wezterm.font('Iosevka'),
 
   -- Set the font size
-  font_size = 14.0,
+  font_size = 16.0,
 }

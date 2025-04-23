@@ -57,7 +57,8 @@
   },
   "backlight": {
     "justify": "center", 
-    "format": "\n{percent}%"
+    "format": "\n{percent}%",
+    "on-click": "exec theme_swith.sh"
   },
   "niri/language": {
     "justify": "center", 

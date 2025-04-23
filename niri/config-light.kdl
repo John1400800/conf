@@ -177,8 +177,8 @@ binds {
   Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Equal { set-window-height "+10%"; }
 
-  Mod+Space       { toggle-window-floating; }
-  Mod+Shift+Space { switch-focus-between-floating-and-tiling; }
+  Mod+Space       { switch-focus-between-floating-and-tiling; }
+  Mod+Shift+Space { toggle-window-floating; }
 
   Mod+Shift+S { screenshot; }
   Ctrl+Print { screenshot-screen; }

@@ -46,7 +46,6 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-
 bindsym $mod+t mode "transate"
 mode "transate" {
     bindsym $mod+s exec notify-send "$(translate.sh -g)"

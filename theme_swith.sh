@@ -32,6 +32,8 @@ else
   NIRI_THEME="config-dark.kdl"
 fi
 
+niri msg action do-screen-transition
+
 # 3. Применяем новую цветовую схему GNOME
 gsettings set $CONFIG_GNOME color-scheme "$NEW"
 
@@ -47,7 +49,7 @@ sed -i -E "s|^background=.*|background=${FUZZEL_BG}|" "$FUZZEL_CONFIG"
 # 7. Обновляем тему во всех запущенных экземплярах Neovim
 for sock in /run/user/1000/nvim.*; do
   if [[ -S "$sock" ]]; then
-    nvim --server "$sock" --remote-send "<Esc>:set background=$NVIM_BG | colorscheme pinky1<CR>"
+    nvim --server "$sock" --remote-send "<Esc>:set background=$NVIM_BG<CR>"
   fi
 done
 
