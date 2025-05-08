@@ -1,0 +1,10 @@
+layer=top
+anchor=bottom-left
+background-color=#00000033
+border-size=0
+border-color=#0000ff
+default-timeout=6800
+width=1000
+font=DejaVu Sans 19
+outer-margin=0,0,325,127
+height=2000
