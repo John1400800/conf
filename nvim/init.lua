@@ -18,21 +18,22 @@ opt.splitright = true
 opt.dictionary:append('~/download/russian.utf-8')
 opt.langmap =
 [=[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯБЮЖЭХЪ;ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{},фисвуапршолдьтщзйкыегмцчнябюжэхъ;abcdefghijklmnopqrstuvwxyz\,.\;\'[]]=]
+opt.background = 'dark'
 
-local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme")
-local result = handle:read("*a")
-handle:close()
-
-if result:match("prefer%-dark") then
-    opt.background = "dark"
-elseif result:match("prefer%-light") then
-    opt.background = "light"
-else
-    opt.background = "dark"  -- значение по умолчанию
-end
+-- local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme")
+-- local result = handle:read("*a")
+-- handle:close()
+--
+-- if result:match("prefer%-dark") then
+--     opt.background = "dark"
+-- elseif result:match("prefer%-light") then
+--     opt.background = "light"
+-- else
+--     opt.background = "dark"  -- значение по умолчанию
+-- end
 
 opt.termguicolors = true
-vim.cmd.colorscheme('pinky1')
+vim.cmd.colorscheme('gruv1')
 vim.g.mapleader = ' '
 
 vim.keymap.set({ 'n', 'v' }, '<Esc>', '<Esc>:nohlsearch<CR>', { noremap = true, silent = true })
@@ -44,6 +45,16 @@ autocmd('FileType', {
   callback = function()
     opt.spell = true
     opt.spelllang = 'ru,en'
+  end,
+})
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    local filename = vim.fn.expand('%')
+    local output = vim.fn.expand('%:r') .. '.pdf'
+    opt.makeprg = 'pandoc --read=markdown+tex_math_dollars+tex_math_single_backslash ' ..
+                     filename .. ' -o ' .. output ..
+                     ' --pdf-engine=tectonic -V mainfont="Liberation Serif"'
   end,
 })
 autocmd('FileType', {
@@ -75,41 +86,19 @@ autocmd('TermOpen', {
     vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true, buffer = true })
   end,
 })
-
 autocmd('FileType', {
-  pattern = { 'lua', 'tex', 'kdl', 'css', 'html' },
+  pattern = { 'markdown', 'lua', 'tex', 'kdl', 'css', 'html' },
   callback = function()
     opt.shiftwidth = 2
   end,
 })
 
--- vim.lsp.config('*', {
---   capabilities = {
---     textDocument = {
---       semanticTokens = {
---         multilineTokenSupport = true,
---       },
---       completion = {
---         completionItem = {
---           snippetSupport = true,
---         }
---       }
---     }
---   },
---   root_markers = { '.git' },
--- })
+vim.lsp.enable({'lua_ls', 'clangd', 'pylsp', 'ruff', 'sqls', 'texlab', 'rust_analyzer'})
 
-vim.lsp.enable({'lua_ls', 'clangd', 'ruff', 'pylsp', 'sqls', 'texlab', 'rust_analyzer'})
-
--- vim.api.nvim_create_autocmd('LspAttach', {
---   callback = function()
---     vim.diagnostic.config({
---       virtual_text = true
---     })
---   end,
--- })
+vim.g.adwaita_darker = true
 
 require('supermaven-nvim').setup {}
+
 require("nvim-treesitter.configs").setup {
   ensure_installed = { "c", "cpp", "kdl", "lua", "python", "rust", "vim", "markdown", "toml" },
   sync_install = false,

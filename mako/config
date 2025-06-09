@@ -1,10 +1,14 @@
-layer=top
-anchor=bottom-left
-background-color=#00000033
-border-size=0
-border-color=#0000ff
-default-timeout=6800
-width=1000
-font=DejaVu Sans 19
-outer-margin=0,0,325,127
-height=2000
+layer=overlay
+background-color=#1c1c1ce5
+border-size=2
+border-color=#b8bb26ff
+border-radius=7
+font=Adwaita Sans:size=8
+text-color=#ebdbb2ff
+default-timeout=5000
+
+[urgency=low]
+border-color=#3c3836ff
+
+[urgency=critical]
+border-color=#fb4934ff

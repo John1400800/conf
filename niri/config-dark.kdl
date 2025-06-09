@@ -19,7 +19,7 @@ layout {
   // }
   center-focused-column "never" // "on-overflow"
   always-center-single-column
-  empty-workspace-above-first
+  // empty-workspace-above-first
   default-column-display "tabbed"
   preset-column-widths {
     proportion 0.66667
@@ -34,19 +34,24 @@ layout {
   default-column-width { proportion 0.5; }
   focus-ring {
     off
-  }
-  border {
     width 2
     active-gradient from="#f0f" to="#0bf" angle=90
-    inactive-gradient from="#00f" to="#80f" angle=90
+  }
+  border {
+    // off
+    width 2
+    // active-gradient from="#f0f" to="#0bf" angle=90 
+    active-color "#ff00ff"
+    // inactive-gradient from="#00f" to="#80f" angle=90
+    inactive-color "#00bbffaa"
   }
   shadow {
     on
     softness 8
     spread 2
     offset x=3 y=2
-    color "#00bbff66"
-    inactive-color "#0000ff66"
+    color "#ff00ff66"
+    inactive-color "#00bbff66"
   }
   tab-indicator {
     hide-when-single-tab
@@ -66,19 +71,34 @@ layout {
   }
 }
 
-spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "download/wallpaper2.jpg"
 // spawn-at-startup "swaybg" "-c" "#ffffff"
 spawn-at-startup "wlsunset" "-l" "55.7483" "-L" "37.6171"
 // spawn-at-startup "foot" "-s"
+spawn-at-startup "waybar"
 
 prefer-no-csd
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/download/screenshot%Y-%m-%d.png"
 
 window-rule {
   geometry-corner-radius 16
   clip-to-geometry true
+}
+
+/- window-rule {
+  match is-active=false
+  shadow {
+    off
+  }
+}
+
+window-rule {
+    match title="special-terminal"
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 360; }
+  default-floating-position x=18 y=6 relative-to="bottom-right"
 }
 
 window-rule {
@@ -108,7 +128,7 @@ binds {
   Mod+M { spawn "killall" "-SIGUSR1" "waybar"; }
   Mod+Shift+B { spawn "firefox";}
 
-  Mod+P { spawn "sh" "-c" "exec swaylock -f -i ~/download/wallpaper1.jpg"; }
+  Mod+P { spawn "sh" "-c" "exec swaylock -f -i ~/download/wallpaper2.jpg"; }
 
   XF86MonBrightnessUp allow-when-locked=true { spawn "backlight.sh" "+"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn "backlight.sh" "-"; }

@@ -10,7 +10,7 @@
 
 hi clear
 source $VIMRUNTIME/colors/vim.lua " Nvim: revert to Vim default color scheme
-let g:colors_name = 'mycolorscheme'
+let g:colors_name = 'pink'
 
 let s:t_Co = &t_Co
 
@@ -92,17 +92,17 @@ function! s:set_highlights() abort
     hi PmenuKindSel guifg=#ff0066 guibg=#00B7DB gui=NONE cterm=NONE
     hi PmenuExtra guifg=#999999 guibg=#303030 gui=NONE cterm=NONE
     hi PmenuExtraSel guifg=#303030 guibg=#00B7DB gui=NONE cterm=NONE
-    hi PmenuMatch guifg=#AC00FF guibg=#303030 gui=NONE cterm=NONE
-    hi PmenuMatchSel guifg=#AC00FF guibg=#00B7DB gui=bold cterm=bold
+    hi PmenuMatch guifg=#FF00FF guibg=#303030 gui=NONE cterm=NONE
+    hi PmenuMatchSel guifg=#FF00FF guibg=#00B7DB gui=bold cterm=bold
     hi SpecialKey guifg=#ff00ff guibg=NONE gui=NONE cterm=NONE
     hi StatusLine guifg=#ffffff guibg=#505050 gui=NONE cterm=NONE
     hi StatusLineNC guifg=#ffffff guibg=#303030 gui=NONE cterm=NONE
     hi TabLine guifg=NONE guibg=#303030 gui=NONE cterm=NONE
     hi TabLineFill guifg=NONE guibg=#303030 gui=NONE cterm=NONE
-    hi TabLineSel guifg=#00B7DB guibg=#303030 gui=NONE cterm=NONE
+    hi TabLineSel guifg=#ff00ff guibg=#303030 gui=NONE cterm=NONE
     hi ToolbarButton guifg=#ffffff guibg=#303030 gui=bold cterm=bold
     hi ToolbarLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-    hi Visual guifg=#ffffff guibg=#850085 gui=NONE cterm=NONE
+    hi Visual guifg=#ffffff guibg=#660066 gui=NONE cterm=NONE
     hi WildMenu guifg=#303030 guibg=#ff00ff gui=NONE cterm=NONE
     hi EndOfBuffer guifg=#00B7DB guibg=NONE gui=NONE cterm=NONE
     hi Conceal guifg=#ff0066 guibg=NONE gui=NONE cterm=NONE
@@ -112,13 +112,13 @@ function! s:set_highlights() abort
     hi DiffDelete guifg=#000000 guibg=#ff0066 gui=NONE cterm=NONE
     hi DiffText guifg=#000000 guibg=#00B7DB gui=NONE cterm=NONE
     hi Directory guifg=#00B7DB guibg=NONE gui=bold cterm=bold
-    hi IncSearch guifg=#ffffff guibg=#AC00FF gui=NONE cterm=NONE
+    hi IncSearch guifg=#ffffff guibg=#550088 gui=NONE cterm=NONE
     hi ModeMsg guifg=#ff00ff guibg=NONE gui=NONE cterm=NONE
     hi MoreMsg guifg=#ffffff guibg=#000000 gui=bold cterm=bold
     hi Question guifg=#ff00ff guibg=NONE gui=bold cterm=bold
-    hi Search guifg=#ffffff guibg=#006A78 gui=NONE cterm=NONE
+    hi Search guifg=#ffffff guibg=#006666 gui=NONE cterm=NONE
     hi QuickFixLine guifg=#00B7DB guibg=#1c1c1c gui=reverse cterm=reverse
-    hi SpellBad guifg=#ff0066 guibg=NONE guisp=#ff0066 gui=undercurl cterm=underline
+    hi SpellBad guifg=NONE guibg=NONE guisp=#ff0066 gui=undercurl cterm=underline
     hi SpellCap guifg=#00B7DB guibg=NONE guisp=#00B7DB gui=undercurl cterm=underline
     hi SpellLocal guifg=#AC00FF guibg=NONE guisp=#AC00FF gui=undercurl cterm=underline
     hi SpellRare guifg=#ff00ff guibg=NONE guisp=#ff00ff gui=undercurl cterm=underline
@@ -161,9 +161,9 @@ function! s:set_highlights() abort
     hi DiagnosticHint guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
     hi LspInlayHint guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
     hi DiagnosticWarn guifg=#AC00FF guibg=NONE gui=italic cterm=NONE
-    hi DiagnosticUnderlineWarn gui=underline guisp=#AC00FF
+    hi DiagnosticUnderlineWarn gui=undercurl guisp=#AC00FF
     hi DiagnosticError guifg=#ff0066 guibg=NONE gui=italic cterm=NONE
-    hi DiagnosticUnderlineError gui=underline guisp=#ff0066
+    hi DiagnosticUnderlineError gui=undercurl guisp=#ff0066
     hi @module guifg=NONE guibg=NONE gui=italic cterm=NONE
   else
     if (has('termguicolors') && &termguicolors) || has('gui_running')
@@ -214,13 +214,13 @@ function! s:set_highlights() abort
     hi DiffDelete guifg=#ffffff guibg=#ff0066 gui=NONE cterm=NONE
     hi DiffText guifg=#ffffff guibg=#00B7DB gui=NONE cterm=NONE
     hi Directory guifg=#0000ff guibg=NONE gui=bold cterm=bold
-    hi IncSearch guifg=#ffffff guibg=#AC00FF gui=NONE cterm=NONE
+    hi IncSearch guifg=#000000 guibg=#CC99FF gui=NONE cterm=NONE
     hi ModeMsg guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
     hi MoreMsg guifg=#000000 guibg=#ffffff gui=bold cterm=bold
     hi Question guifg=#ff00ff guibg=NONE gui=bold cterm=bold
-    hi Search guifg=#ffffff guibg=#0000ff gui=NONE cterm=NONE
+    hi Search guifg=#000000 guibg=#FF99FF gui=NONE cterm=NONE
     hi QuickFixLine guifg=#0000ff guibg=#fbf1c7 gui=reverse cterm=reverse
-    hi SpellBad guifg=#ff0066 guibg=NONE guisp=#ff0066 gui=undercurl cterm=underline
+    hi SpellBad guifg=NONE guibg=NONE guisp=#ff0066 gui=undercurl cterm=underline
     hi SpellCap guifg=#0000ff guibg=NONE guisp=#0000ff gui=undercurl cterm=underline
     hi SpellLocal guifg=#AC00FF guibg=NONE guisp=#AC00FF gui=undercurl cterm=underline
     hi SpellRare guifg=#ff00ff guibg=NONE guisp=#ff00ff gui=undercurl cterm=underline
@@ -253,7 +253,7 @@ function! s:set_highlights() abort
     hi StorageClass guifg=#AC00FF guibg=NONE gui=NONE cterm=NONE
     hi Special guifg=#ff0066 guibg=NONE gui=NONE cterm=NONE
     hi String guifg=#ff00ff guibg=NONE gui=NONE cterm=NONE
-    hi Structure guifg=#AC00FF guibg=NONE gui=NONE cterm=NONE
+    "hi Structure guifg=#AC00FF guibg=NONE gui=NONE cterm=NONE
     hi Todo guifg=#ffffff guibg=#00B7DB gui=NONE cterm=NONE
     hi Type guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
     hi Typedef guifg=#0000ff guibg=NONE gui=NONE cterm=NONE
@@ -263,9 +263,9 @@ function! s:set_highlights() abort
     hi DiagnosticHint guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
     hi LspInlayHint guifg=#00B7DB guibg=NONE gui=italic cterm=NONE
     hi DiagnosticWarn guifg=#AC00FF guibg=NONE gui=italic cterm=NONE
-    hi DiagnosticUnderlineWarn gui=underline guisp=#AC00FF
+    hi DiagnosticUnderlineWarn gui=undercurl guisp=#AC00FF
     hi DiagnosticError guifg=#ff0066 guibg=NONE gui=italic cterm=NONE
-    hi DiagnosticUnderlineError guifg=NONE guibg=NONE gui=underline guisp=#ff0066
+    hi DiagnosticUnderlineError guifg=NONE guibg=NONE gui=undercurl guisp=#ff0066
     hi @module guifg=NONE guibg=NONE gui=italic cterm=NONE
   endif
 endfunction
@@ -305,8 +305,8 @@ if s:t_Co >= 256
     hi PmenuKindSel ctermfg=197 ctermbg=37 cterm=NONE
     hi PmenuExtra ctermfg=246 ctermbg=236 cterm=NONE
     hi PmenuExtraSel ctermfg=236 ctermbg=37 cterm=NONE
-    hi PmenuMatch ctermfg=128 ctermbg=236 cterm=NONE
-    hi PmenuMatchSel ctermfg=128 ctermbg=37 cterm=bold
+    hi PmenuMatch ctermfg=201 ctermbg=236 cterm=NONE
+    hi PmenuMatchSel ctermfg=201 ctermbg=37 cterm=bold
     hi SpecialKey ctermfg=201 ctermbg=NONE cterm=NONE
     hi StatusLine ctermfg=255 ctermbg=239 cterm=NONE
     hi StatusLineNC ctermfg=255 ctermbg=236 cterm=NONE
@@ -374,9 +374,9 @@ if s:t_Co >= 256
     hi DiagnosticHint ctermfg=37 ctermbg=NONE cterm=italic
     hi LspInlayHint ctermfg=37 ctermbg=NONE cterm=italic
     hi DiagnosticWarn ctermfg=128 ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineWarn cterm=underline
+    hi DiagnosticUnderlineWarn cterm=undercurl
     hi DiagnosticError ctermfg=197 ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineError cterm=underline
+    hi DiagnosticUnderlineError cterm=undercurl
     hi @module ctermfg=NONE ctermbg=NONE cterm=italic
   else
     hi Normal ctermfg=16 ctermbg=NONE cterm=NONE
@@ -470,9 +470,9 @@ if s:t_Co >= 256
     hi DiagnosticHint ctermfg=37 ctermbg=NONE cterm=italic
     hi LspInlayHint ctermfg=37 ctermbg=NONE cterm=italic
     hi DiagnosticWarn ctermfg=128 ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineWarn cterm=underline
+    hi DiagnosticUnderlineWarn cterm=undercurl
     hi DiagnosticError ctermfg=197 ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineError cterm=underline
+    hi DiagnosticUnderlineError cterm=undercurl
     hi @module ctermfg=NONE ctermbg=NONE cterm=italic
   endif
   unlet s:t_Co
@@ -572,9 +572,9 @@ if s:t_Co >= 16
     hi DiagnosticHint ctermfg=Cyan ctermbg=NONE cterm=italic
     hi LspInlayHint ctermfg=Cyan ctermbg=NONE cterm=italic
     hi DiagnosticWarn ctermfg=Magenta ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineWarn cterm=underline
+    hi DiagnosticUnderlineWarn cterm=undercurl
     hi DiagnosticError ctermfg=Red ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineError cterm=underline
+    hi DiagnosticUnderlineError cterm=undercurl
     hi @module ctermfg=NONE ctermbg=NONE cterm=italic
   else
     hi Normal ctermfg=Black ctermbg=White cterm=NONE
@@ -668,9 +668,9 @@ if s:t_Co >= 16
     hi DiagnosticHint ctermfg=Cyan ctermbg=NONE cterm=italic
     hi LspInlayHint ctermfg=Cyan ctermbg=NONE cterm=italic
     hi DiagnosticWarn ctermfg=Magenta ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineWarn cterm=underline
+    hi DiagnosticUnderlineWarn cterm=undercurl
     hi DiagnosticError ctermfg=Red ctermbg=NONE cterm=italic
-    hi DiagnosticUnderlineError cterm=underline
+    hi DiagnosticUnderlineError cterm=undercurl
     hi @module ctermfg=NONE ctermbg=NONE cterm=italic
   endif
   unlet s:t_Co
@@ -770,9 +770,9 @@ if s:t_Co >= 8
     hi DiagnosticHint ctermfg=Cyan ctermbg=DarkGray cterm=italic
     hi LspInlayHint ctermfg=Cyan ctermbg=DarkGray cterm=italic
     hi DiagnosticWarn ctermfg=Magenta ctermbg=DarkGray cterm=italic
-    hi DiagnosticUnderlineWarn cterm=underline
+    hi DiagnosticUnderlineWarn cterm=undercurl
     hi DiagnosticError ctermfg=Red ctermbg=DarkGray cterm=italic
-    hi DiagnosticUnderlineError cterm=underline
+    hi DiagnosticUnderlineError cterm=undercurl
     hi @module ctermfg=Gray ctermbg=DarkGray cterm=italic
   else
     hi Normal ctermfg=Black ctermbg=White cterm=NONE
@@ -866,9 +866,9 @@ if s:t_Co >= 8
     hi DiagnosticHint ctermfg=Cyan ctermbg=Gray cterm=italic
     hi LspInlayHint ctermfg=Cyan ctermbg=Gray cterm=italic
     hi DiagnosticWarn ctermfg=Magenta ctermbg=Gray cterm=italic
-    hi DiagnosticUnderlineWarn cterm=underline
+    hi DiagnosticUnderlineWarn cterm=undercurl
     hi DiagnosticError ctermfg=Red ctermbg=Gray cterm=italic
-    hi DiagnosticUnderlineError cterm=underline
+    hi DiagnosticUnderlineError cterm=undercurl
     hi @module ctermfg=Gray ctermbg=Gray cterm=italic
   endif
   unlet s:t_Co
@@ -943,9 +943,9 @@ if s:t_Co >= 0
   hi DiagnosticHint term=italic
   hi LspInlayHint term=italic
   hi DiagnosticWarn term=italic
-  hi DiagnosticUnderlineWarn term=underline
+  hi DiagnosticUnderlineWarn term=undercurl
   hi DiagnosticError term=italic
-  hi DiagnosticUnderlineError term=underline
+  hi DiagnosticUnderlineError term=undercurl
   hi @module term=italic
   unlet s:t_Co
   finish
