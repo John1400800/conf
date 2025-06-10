@@ -2,10 +2,9 @@
 # ~/.bash_profile
 #
 
-export CXXFLAGS="-Wall -Wextra -Wconversion -Wshadow -Weffc++ -pedantic-errors -std=c++23"
-export GOOGLE_AI_API_KEY=AIzaSyDHIfxiKMdlzwt3fEslzZsvk7TZ6T-3VTE
-export TERMINAL=footclient
-
-[[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 && $(tty) == "/dev/tty1" ]] && exec dbus-run-session niri --session
+if [[ -z "$NIRI_RUNNING" && -z "$DISPLAY" && -z "$WAYLAND_DISPLAY" && "$(uu-tty)" = "/dev/tty1" ]]; then
+  export NIRI_RUNNING=1
+  exec niri-session
+fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
