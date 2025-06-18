@@ -93,6 +93,18 @@ autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_user_command("Pager", function()
+  opt.number = false
+  opt.relativenumber = false
+  local orig = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(orig, 0, -1, false)
+  local text = table.concat(lines, '\r\n') .. '\r\n'
+  vim.cmd('enew')  -- create a new buffer
+  local chan = vim.api.nvim_open_term(0, {})
+  vim.api.nvim_chan_send(chan, text)
+  vim.api.nvim_buf_delete(orig, { force = true })
+end, {})
+
 vim.lsp.enable({'lua_ls', 'clangd', 'pylsp', 'ruff', 'sqls', 'texlab', 'rust_analyzer'})
 
 vim.g.adwaita_darker = true

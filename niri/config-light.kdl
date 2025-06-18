@@ -143,9 +143,17 @@ window-rule { // add border to all windows
 
 window-rule { // make all inactive windows semi-transparent
   match is-focused=false
+  exclude app-id=r#"foot$"#
+  exclude app-id=r#"Alacritty$"#
   // exclude app-id=r#"firefox$"#
   // exclude app-id=r#"mpv$"#
-  opacity 0.90
+  opacity 0.81
+}
+
+window-rule { // make transparent inactive windows semi-transparent
+  match app-id=r#"foot$"# is-focused=false
+  match app-id=r#"Alacritty$"# is-focused=false
+  opacity 0.9
 }
 
 window-rule { // fix wezterm
