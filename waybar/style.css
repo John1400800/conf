@@ -1,1 +1,69 @@
-/home/john/.config/waybar/style-light.css
+* {
+    margin: 0;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border: none;
+    font-family: "Iosevka Nerd Font", "Font Awesome 6 Free", monospace;
+    color: #ebdbb2;
+}
+
+#waybar {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+window > box {
+  margin: 2 7 0;
+}
+
+.modules-left,
+#window,
+#mpris,
+#tray,
+#wireplumber,
+#language,
+#hardware,
+#network,
+#clock,
+#power {
+    background-color: rgba(28, 28, 28, 0.9);
+    box-shadow: 0px 1px 5px -3px #000;
+    border-radius: 7px;
+    border: 2px solid #b8bb26;
+    /* border: 2px solid #3c3836; */
+    padding: 0 4px;
+    font-size: 13px;
+}
+
+#cpu,
+#backlight,
+#workspaces {
+  margin-right: 4px;
+}
+
+tooltip {
+  background-color: rgba(28, 28, 28, 0.9);
+  box-shadow: 0px 1px 5px -3px #000;
+  border-radius: 7px;
+  border: 2px solid #b8bb26;
+  /* border: 2px solid #3c3836; */
+  padding: 0 4px;
+  font-size: 13px;
+}
+
+window#waybar.empty #window {
+    margin: 0;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+/* #workspaces button.active { */
+/*     font-weight: bold; */
+/* } */
+/**/
+/* #workspaces button.focused { */
+/*     font-weight: bold; */
+/* } */
+/**/
