@@ -15,10 +15,10 @@
     "modules": [ "backlight", "battery" ],
   },
   "niri/workspaces": {
-    "format": "{icon}",
+    "format": "",
     "format-icons": {
-      "active": "",
-      "default": "",
+      "active": "",
+      "default": "",
     },
   },
   "niri/window": {
