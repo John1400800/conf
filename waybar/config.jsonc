@@ -1,97 +1,91 @@
 {
   "reload_style_on_change": true,
   "layer": "top",
-  "position": "right",
-  "spacing": 4,
-  "modules-left": [
-    "niri/workspaces",
-  ],
-  "modules-center": ["clock"],
-  "modules-right": [
-    "battery",
-    "niri/language",
-    "pulseaudio",
-    "memory",
-    "cpu",
-    "temperature",
-    "network",
-    "backlight"
-  ],
+  "position": "top",
+  "spacing": 3,
+  "modules-left": [ "niri/workspaces" ],
+  "modules-center": [ "niri/window" ],
+  "modules-right": [ "mpris", "tray", "wireplumber#sink", "niri/language", "group/hardware", "network", "clock", "group/power" ],
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [ "cpu", "memory" ],
+  },
+  "group/power": {
+    "orientation": "horizontal",
+    "modules": [ "backlight", "battery" ],
+  },
   "niri/workspaces": {
-    "justify": "center", 
-    "all-outputs": true,
-    "format": ""
-  },
-  "cpu": {
-    "justify": "center", 
-    "format": "\n{usage}%",
-    "tooltip": false
-  },
-  "memory": {
-    "justify": "center", 
-    "format": "\n{used}\nGiB"
-  },
-  "temperature": {
-    "justify": "center", 
-    "critical-threshold": 80,
-    "format": "{icon}\n{temperatureC}°C",
-    "format-icons": ["", "", ""]
-  },
-  "pulseaudio": {
-    "justify": "center", 
-    "format": "{icon}\n{volume}%",
-    "format-muted": "",
+    "format": "{icon}",
     "format-icons": {
-      "default": ["", ""]
+      "active": "",
+      "default": "",
     },
-    "on-click": "exec amixer set Master toggle"
   },
-  "network": {
-    "justify": "center", 
-    "format-wifi": "",
-    "tooltip-format": "<tt><small>{essid}</small></tt>",
-    "format-ethernet": " {ipaddr}/{cidr}",
-    "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "",
-    "interval": 5
+  "niri/window": {
+    "tooltip": false,
+    "icon": true,
+    "icon-size": 16,
+    "max-length": 50,
   },
-  "backlight": {
-    "justify": "center", 
-    "format": "\n{percent}%",
-    "on-click": "exec theme_swith.sh"
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "status-icons": {
+      "playing": "⏸",
+      "default": ""
+    },
+    "max-length": 33,
+  },
+  "tray": {
+    "icon-size": 16,
+    "show-passive-items": true,
+  },
+  "wireplumber#sink": {
+    "format": "{icon} {volume:3}%",
+    "format-muted": "     ",
+    "format-icons": ["", "", ""],
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "helvum",
+    "scroll-step": 0.2
   },
   "niri/language": {
-    "justify": "center", 
-    "format": "\n{short}",
-    "on-click": "exec niri msg action switch-layout next"
+    "format": "  {short:2}",
+    "on-click": "niri msg action switch-layout next",
   },
-  "battery": {
-    "justify": "center", 
-    "states": {
-      "warning": 20,
-      "critical": 10
-    },
-    "format": "{icon}\n{capacity}%",
-    "format-charging": "\n{capacity}%",
-    "format-icons": ["", "", "", ""]
+  "cpu": {
+    "format": " {usage:2}%",
+    // "format": " {icon0}{icon1}{icon2}{icon3}{usage:2}%",
+    // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "tooltip": false,
+  },
+  "memory": {
+    "format": " {used:0.1f}/{total:0.1f}G",
+    "tooltip": false,
+  },
+  "network": {
+    "format-wifi": " {signalStrength:2}%",
+    "format-disconnected": "",
+    "tooltip-format": "{essid}",
+  },
+  "backlight": {
+    "format": "{icon} {percent:2}%",
+    "format-icons": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+    "tooltip": false,
   },
   "clock": {
     "justify": "center", 
-    "format": "\n{:%H\n%M}",
-    "format-alt": "\n{:%H\n%M\n\n%a\n%e\n%b\n%Y}", 
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1, 
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
-    }
-  }
+    "format": " {:%H:%M}",
+    "format-alt": " {:%H:%M   %a %e %b %Y}", 
+    "tooltip": false,
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity:2}%",
+    "format-charging": " {capacity:2}%",
+    "format-plugged": " {capacity:2}%",
+    "format-icons": ["", "", "", "", ""]
+  },
 }
