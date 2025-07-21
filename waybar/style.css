@@ -66,7 +66,7 @@ window#waybar.empty #window {
 
 #workspaces button > * {
   font-size: 0px;
-  background: alpha(@theme_text_color, .6);
+  background: alpha(@theme_text_color, .4);
   margin: .6rem .5rem;
   border-radius: 7px;
 }
