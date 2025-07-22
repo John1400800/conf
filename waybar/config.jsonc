@@ -46,7 +46,7 @@
     "format-icons": ["", "", ""],
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "helvum",
-    "scroll-step": 0.2
+    "scroll-step": 0.1
   },
   "niri/language": {
     "format": "  {short:2}",
@@ -71,6 +71,9 @@
     "format": "{icon} {percent:2}%",
     "format-icons": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
     "tooltip": false,
+    "on-scroll-up": "brightnessctl set 100+",
+    "on-scroll-down": "brightnessctl set 100-",
+    "scroll-step": 0.01
   },
   "clock": {
     "justify": "center", 
