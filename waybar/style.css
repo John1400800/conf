@@ -1,0 +1,70 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  font-family: "Iosevka Nerd Font", "Font Awesome 6 Free", monospace;
+}
+
+#waybar {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+window > box {
+  margin: 2px 9px 0px;
+}
+
+tooltip,
+.modules-left,
+#window,
+#mpris,
+#tray,
+#wireplumber,
+#language,
+#hardware,
+#network,
+#clock,
+#power {
+  color: alpha(@theme_text_color, 1);
+  background-color: alpha(@theme_bg_color, 0.8);
+  box-shadow: 0px 1px 5px -3px #000;
+  border-radius: 7px;
+  border: 2px solid #b8bb26;
+  /* border: 2px solid #3c3836; */
+  font-size: 14px;
+  padding: 0px 3px;
+}
+
+.modules-left {
+  padding: 0px;
+}
+
+#cpu,
+#backlight {
+  margin-right: 8px;
+}
+
+window#waybar.empty #window {
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* #workspaces button { */
+/*   background: #00f; */
+/* } */
+
+#workspaces button > * {
+  font-size: 0px;
+  background: alpha(@theme_text_color, .4);
+  margin: .6rem .5rem;
+  border-radius: 7px;
+}
+
+#workspaces button.focused > * {
+  background: alpha(@theme_text_color, 1);
+  padding: 0 1.1rem;
+}
