@@ -1,6 +1,6 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   background: none;
   box-shadow: none;
   border: none;
@@ -12,9 +12,10 @@
 }
 
 window > box {
-  margin: 2 9 0;
+  margin: 2px 9px 0px;
 }
 
+tooltip,
 .modules-left,
 #window,
 #mpris,
@@ -32,24 +33,16 @@ window > box {
   border: 2px solid #b8bb26;
   /* border: 2px solid #3c3836; */
   font-size: 14px;
-  padding: 0 3px;
+  padding: 0px 3px;
 }
 
 .modules-left {
-  padding: 0;
+  padding: 0px;
 }
 
 #cpu,
 #backlight {
   margin-right: 8px;
-}
-
-tooltip {
-  background-color: alpha(@theme_bg_color, 0.8);
-  box-shadow: 0px 1px 5px -3px #000;
-  border-radius: 7px;
-  border: 2px solid #b8bb26;
-  padding: 0 4px;
 }
 
 window#waybar.empty #window {
