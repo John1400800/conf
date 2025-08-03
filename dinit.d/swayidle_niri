@@ -1,0 +1,4 @@
+type = process
+command = swayidle -w timeout 110 "niri msg action power-off-monitors" timeout 111 "swaylock -f -s fill -i ~/download/pexels-nejc-kosir-108379-338936.jpg" before-sleep "swaylock -f -s fill -i ~/download/pexels-nejc-kosir-108379-338936.jpg"
+depends-on: graphical.target
+log-type = buffer
