@@ -1,4 +1,4 @@
-" Name:         MyColorscheme
+" Name:         John
 " Description:  A custom colorscheme with dark and light variants
 " Author:       Your Name <your.email@example.com>
 " Maintainer:   Your Name <your.email@example.com>
@@ -51,14 +51,14 @@ function! s:set_highlights() abort
   hi! link NonText              Comment
   hi! link SpecialKey           Comment
   hi! link Function             String
-  hi! link Title                String 
+  hi! link Title                String
   hi! link DiagnosticOk         String
   hi! link MoreMsg              String
   hi! link Question             String
   hi! link QuickFixLine         String
   hi! link PreProc              Operator
-  "hi! link Structure            Operator
   hi! link DiagnosticInfo       Operator
+  hi! link CursorLineNr         Type
   hi! link DiagnosticWarn       Special
   hi! link StorageClass         Special
   hi! link Delimiter            Special
@@ -69,7 +69,6 @@ function! s:set_highlights() abort
 
   if &background ==# 'dark'
     hi Normal                   guifg=#ebdbb2   guibg=NONE      gui=NONE
-    hi CursorLineNr             guifg=#fabd2f   guibg=NONE      gui=NONE "maybe same 
     "hi MatchParen               guifg=#8ec07c   guibg=NONE      gui=reverse
     hi CurSearch                guifg=#fe8019   guibg=NONE      gui=reverse
     hi Pmenu                    guifg=NONE      guibg=#3c3836   gui=NONE
@@ -92,7 +91,7 @@ function! s:set_highlights() abort
     hi Underlined               guifg=#83a598   guibg=NONE      gui=underline
     hi Todo                     guifg=#fabd2f   guibg=NONE      gui=reverse,bold
     hi DiagnosticUnderlineError guifg=NONE      guibg=NONE      gui=undercurl guisp=#fb4934
-    hi DiagnosticUnderlineWarn  guifg=NONE      guibg=NONE      gui=undercurl guisp=#fe8019 
+    hi DiagnosticUnderlineWarn  guifg=NONE      guibg=NONE      gui=undercurl guisp=#fe8019
     hi DiagnosticUnderlineInfo  guifg=NONE      guibg=NONE      gui=undercurl guisp=#8ec07c
     hi DiagnosticUnderlineHint  guifg=NONE      guibg=NONE      gui=undercurl guisp=#83a598
     hi DiagnosticUnderlineOk    guifg=NONE      guibg=NONE      gui=undercurl guisp=#b8bb26
