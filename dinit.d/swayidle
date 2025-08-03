@@ -1,0 +1,4 @@
+type = process
+command = swayidle -w timeout 110 "swaymsg 'output * power off'" resume "swaymsg 'output * power on'" timeout 111 "swaylock -f -s fill -i ~/download/wallpaper.jpg" before-sleep "swaylock -f -s fill -i ~/download/wallpaper.jpg"
+depends-on: graphical.target
+log-type = buffer
