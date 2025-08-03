@@ -1,0 +1,4 @@
+type = process
+command = wlsunset -l 55.7483 -L 37.6171 -T 6400
+depends-on: graphical.target
+log-type = buffer
