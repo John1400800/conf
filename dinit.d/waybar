@@ -1,0 +1,5 @@
+type = process
+command = /usr/bin/waybar
+depends-on = dbus
+depends-on = graphical.target
+log-type = buffer
