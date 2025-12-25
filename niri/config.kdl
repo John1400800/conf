@@ -22,7 +22,7 @@ binds {
   Mod+M hotkey-overlay-title="Toggle waybar view" { spawn "killall" "-SIGUSR1" "waybar"; }
   Mod+Shift+B hotkey-overlay-title="Open a Webbrowser: firefox" { spawn "firefox";}
 
-  Mod+P hotkey-overlay-title="Lock the Screen: swaylock" { spawn "sh" "-c" "exec swaylock -f -s fill -i download/pexels-nejc-kosir-108379-338936.jpg"; }
+  Mod+P hotkey-overlay-title="Lock the Screen: swaylock" { spawn "sh" "-c" "exec swaylock -f -s fill -c 282828"; }
   Mod+T hotkey-overlay-title="transleate selected area" { spawn "niri_ptext.sh"; }
 
   XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "1%+"; }
@@ -59,7 +59,7 @@ binds {
   Mod+Comma  { consume-window-into-column; }
   Mod+Period { expel-window-from-column; }
 
-  Mod+Tab { focus-workspace-previous; }
+  // Mod+Tab { focus-workspace-previous; }
 
   Mod+R { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-window-height; }
@@ -82,7 +82,7 @@ binds {
 
   Mod+W { toggle-column-tabbed-display; }
 
-  Mod+Shift+S { screenshot; }
+  Mod+Shift+S { screenshot; } // screenshot-window
   Print { screenshot; }
   Ctrl+Print { screenshot-screen; }
   Alt+Print { screenshot-window; }
@@ -126,18 +126,19 @@ layout {
 
 prefer-no-csd
 
-screenshot-path "~/download/screenshot%Y-%m-%d.png"
+// screenshot-path "~/Pictures/screenshot%Y-%m-%d.png"
+screenshot-path "~/Pictures/screenshot.png"
 
-environment {
+/-environment {
   QT_QPA_PLATFORM "wayland"
-  QT_QPA_PLATFORMTHEME "qt5ct"
+  // QT_QPA_PLATFORMTHEME "qt5ct"
   GTK_THEME "Gruvbox-Dark"
-  DISPLAY null
+  // DISPLAY null
 }
 
 cursor {
-    xcursor-theme "Adwaita"
-    // xcursor-size 48
+    xcursor-theme "Capitaine Gruvbox Gruvbox Light"
+    xcursor-size 32
 }
 
 overview {
@@ -170,7 +171,7 @@ window-rule { // fix wezterm
 }
 
 window-rule { // set 1/3 with
-  match app-id=r#"Firefox$"#
+  match app-id=r#"firefox"#
   default-column-width { proportion 0.66667; }
 }
 
@@ -196,7 +197,7 @@ window-rule {
 }
 
 layer-rule {
-  match namespace="^wallpaper$"
+  // match namespace="^wallpaper$"
   match namespace="waybar"
   place-within-backdrop true
 }
