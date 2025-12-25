@@ -38,6 +38,11 @@ vim.g.netrw_banner = 0
 vim.g.mapleader = ' '
 
 vim.keymap.set({ 'n', 'v' }, '<Esc>', '<Esc>:nohlsearch<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>i',
+function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end,
+{desc = "Toggle Inlay Hints"})
 
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'text', 'markdown', 'tex' },
@@ -106,23 +111,21 @@ end, {})
 
 vim.lsp.enable({ 'lua_ls', 'clangd', 'pylsp', 'ruff', 'ty', 'sqls', 'texlab', 'rust_analyzer' })
 
-vim.g.adwaita_darker = true
+-- require('supermaven-nvim').setup {}
 
-require('supermaven-nvim').setup {}
-
-require("nvim-treesitter.configs").setup {
-    ensure_installed = { "c", "cpp", "kdl", "lua", "python", "rust", "vim", "markdown", "toml" },
-    sync_install = false,
-    highlight = { enable = true, disable = { "latex", "vimdoc" } },
-    indent = { enable = true },
-    modules = {},      -- explicitly add an empty table for modules
-    ignore_install = {}, -- explicitly add an empty table for ignore_install
-    auto_install = true, -- explicitly set auto_install to false
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            node_incremental = "v",
-            node_decremental = "V",
-        },
-    }
-}
+-- require("nvim-treesitter.configs").setup {
+--     ensure_installed = { "c", "cpp", "kdl", "lua", "python", "rust", "vim", "markdown", "toml" },
+--     sync_install = false,
+--     highlight = { enable = true, disable = { "latex", "vimdoc" } },
+--     indent = { enable = true },
+--     modules = {},      -- explicitly add an empty table for modules
+--     ignore_install = {}, -- explicitly add an empty table for ignore_install
+--     auto_install = true, -- explicitly set auto_install to false
+--     incremental_selection = {
+--         enable = true,
+--         keymaps = {
+--             node_incremental = "v",
+--             node_decremental = "V",
+--         },
+--     }
+-- }
