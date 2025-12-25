@@ -3,10 +3,10 @@ import = [ "~/.config/alacritty/themes/gruvbox-dark-hard.toml" ]
 
 [window]
 padding = {x = 5, y = 5}
-opacity = 0.9
+# opacity = 0.9
 
 [font]
-normal = { family = "Iosevka", style = "Regular" }
+normal = { family = "Iosevka Nerd Font", style = "Regular" }
 size = 16
 
 [mouse]
